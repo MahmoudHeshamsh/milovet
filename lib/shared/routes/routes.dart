@@ -4,5 +4,4 @@ class Routes {
   static const String getStarted = '/get_started';
   static const String login = '/login';
   static const String register = '/register';
-
 }
