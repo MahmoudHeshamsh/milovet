@@ -1,14 +1,204 @@
 import 'package:flutter/material.dart';
-import 'package:milovet/shared/color_manager.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+
+  bool isEmailValid = true;
+  bool isPasswordValid = true;
+
+  void _handleLogin() {
+    String email = _emailController.text.trim();
+    String password = _passwordController.text.trim();
+
+    setState(() {
+      isEmailValid = email.isNotEmpty;
+      isPasswordValid = password.isNotEmpty;
+    });
+
+    if (!isEmailValid || !isPasswordValid) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text("Please enter email and password"),
+          backgroundColor: Colors.red,
+        ),
+      );
+      return;
+    }
+
+    // Simulate login action
+    print("Email: $email, Password: $password");
+
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text("Login Successful!"),
+        backgroundColor: Colors.green,
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        color: ColorManager.lightPurple,
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text(
+          "Login",
+          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+        ),
+      ),
+      body: GestureDetector(
+        onTap: () => FocusScope.of(context).unfocus(),
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text(
+                    "Welcome Back!",
+                    style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.purple),
+                  ),
+                  SizedBox(height: 40),
+
+                  // Email Field
+                  TextField(
+                    controller: _emailController,
+                    keyboardType: TextInputType.emailAddress,
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Color(0xffEEEEEE),
+                      labelText: "Email",
+                      labelStyle: TextStyle(
+                        color: isEmailValid ? Colors.black : Colors.red,
+                      ),
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: isEmailValid ? Colors.grey : Colors.red,
+                        ),
+                      ),
+                      prefixIcon: Icon(Icons.email, color: Colors.purple),
+                    ),
+                  ),
+                  SizedBox(height: 20),
+
+                  // Password Field
+                  TextField(
+                    controller: _passwordController,
+                    obscureText: true,
+                    decoration: InputDecoration(
+                      filled: true,
+                      fillColor: Color(0xffEEEEEE),
+                      labelText: "Password",
+                      labelStyle: TextStyle(
+                        color: isPasswordValid ? Colors.black : Colors.red,
+                      ),
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide(
+                          color: isPasswordValid ? Colors.grey : Colors.red,
+                        ),
+                      ),
+                      prefixIcon: Icon(Icons.lock, color: Colors.purple),
+                    ),
+                  ),
+                  SizedBox(height: 10),
+
+                  // Forgot Password
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, '/forgot_password');
+                      },
+                      child: Text(
+                        "Forgot your password?",
+                        style: TextStyle(color: Colors.purple),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 20),
+
+                  // Login Button
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.purple,
+                      minimumSize: Size(double.infinity, 50),
+                    ),
+                    onPressed: _handleLogin,
+                    child: Text("Login", style: TextStyle(color: Colors.white)),
+                  ),
+
+                  SizedBox(height: 10),
+
+                  // Signup Option
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("Don’t have an account?"),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/signup');
+                        },
+                        child: Text(
+                          "Create new account",
+                          style: TextStyle(color: Colors.purple),
+                        ),
+                      ),
+                    ],
+                  ),
+
+                  SizedBox(height: 20),
+                  Text('_______ Or continue with _______'),
+                  SizedBox(height: 20),
+
+                  // Social Login
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      _socialButton(Icons.g_mobiledata),
+                      SizedBox(width: 5),
+                      _socialButton(Icons.facebook),
+                      SizedBox(width: 5),
+                      _socialButton(Icons.apple),
+                    ],
+                  )
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _socialButton(IconData icon) {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12),
+        color: Colors.purple.withOpacity(0.1),
+      ),
+      child: Material(
+        color: Colors.transparent,
+        borderRadius: BorderRadius.circular(12),
+        child: InkWell(
+          borderRadius: BorderRadius.circular(12),
+          onTap: () {},
+          child: Padding(
+            padding: EdgeInsets.all(8),
+            child: Icon(icon, size: 40, color: Colors.purple),
+          ),
+        ),
       ),
     );
   }
