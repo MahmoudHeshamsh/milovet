@@ -4,7 +4,8 @@ import 'package:milovet/chat_tab/view/widgets/chat_tab.dart';
 import 'package:milovet/home_tab/view/widgets/home_tab_owner.dart';
 import 'package:milovet/home_tab/view/widgets/home_tab_veterinarian.dart';
 import 'package:milovet/notificarions_tab/view/widgets/notifications_tab.dart';
-import 'package:milovet/profile_tab/view/widgets/profile_tab.dart';
+import 'package:milovet/profile_tab/view/widgets/profile_tab_owner.dart';
+import 'package:milovet/profile_tab/view/widgets/profile_tab_veterinarian.dart';
 import 'package:milovet/shared/color_manager.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -30,13 +31,13 @@ class _HomeScreenState extends State<HomeScreen> {
             HomeTabOwner(),
             ChatTab(),
             NotificationsTab(),
-            ProfileTab(),
+            ProfileTabOwner(),
           ]
         : [
             HomeTabVeterinarian(),
             ChatTab(),
             NotificationsTab(),
-            ProfileTab(),
+            ProfileTabVeterinarian(),
           ];
     return Scaffold(
       backgroundColor: ColorManager.white,
@@ -53,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       shape: BoxShape.circle,
                       color: ColorManager.white,
                       image: DecorationImage(
-                          image: AssetImage('assets/images/user_image.png'))),
+                          image: isPetOwner? AssetImage('assets/images/user_image.png') : AssetImage('assets/images/doctor_image.png'),)),
                   margin: EdgeInsets.only(bottom: 2.0.h, left: 35.0.w),
                   width: 48.5.w,
                   height: 48.5.h,
