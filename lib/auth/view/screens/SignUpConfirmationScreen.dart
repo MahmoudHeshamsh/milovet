@@ -43,7 +43,8 @@ class _SignUpConfirmationScreenState extends State<SignUpConfirmationScreen> {
                       ),
                       recognizer: TapGestureRecognizer()
                         ..onTap = () {
-                          Navigator.pushNamed(context, '/login');
+                          Navigator.pushNamed(
+                              context, '/reset_password_confirmation');
                         },
                     ),
                     TextSpan(

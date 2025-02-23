@@ -44,7 +44,7 @@ class _ResetPasswordConfirmationScreenState
                   minimumSize: Size(290, 64),
                 ),
                 onPressed: () {
-                  Navigator.pushNamed(context, '/');
+                  Navigator.pushNamed(context, '/reset_password_confirmation');
                 },
                 child: Text("Let's go", style: TextStyle(color: Colors.white)),
               ),

@@ -19,22 +19,19 @@ class _LoginScreenState extends State<LoginScreen> {
     String password = _passwordController.text.trim();
 
     setState(() {
-      isEmailValid = email.isNotEmpty;
-      isPasswordValid = password.isNotEmpty;
+      isEmailValid = email.length >= 8;
+      isPasswordValid = password.length >= 8;
     });
 
     if (!isEmailValid || !isPasswordValid) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text("Please enter email and password"),
+          content: Text("Email and password must be at least 8 characters!"),
           backgroundColor: Colors.red,
         ),
       );
       return;
     }
-
-    // Simulate login action
-    print("Email: $email, Password: $password");
 
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
@@ -42,6 +39,10 @@ class _LoginScreenState extends State<LoginScreen> {
         backgroundColor: Colors.green,
       ),
     );
+
+    Future.delayed(Duration(seconds: 2), () {
+      Navigator.pushNamed(context, '/signup_confirmation');
+    });
   }
 
   @override
@@ -83,11 +84,9 @@ class _LoginScreenState extends State<LoginScreen> {
                       labelStyle: TextStyle(
                         color: isEmailValid ? Colors.black : Colors.red,
                       ),
-                      border: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: isEmailValid ? Colors.grey : Colors.red,
-                        ),
-                      ),
+                      errorText:
+                          isEmailValid ? null : "Must be at least 8 characters",
+                      border: OutlineInputBorder(),
                       prefixIcon: Icon(Icons.email, color: Colors.purple),
                     ),
                   ),
@@ -104,11 +103,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       labelStyle: TextStyle(
                         color: isPasswordValid ? Colors.black : Colors.red,
                       ),
-                      border: OutlineInputBorder(
-                        borderSide: BorderSide(
-                          color: isPasswordValid ? Colors.grey : Colors.red,
-                        ),
-                      ),
+                      errorText: isPasswordValid
+                          ? null
+                          : "Must be at least 8 characters",
+                      border: OutlineInputBorder(),
                       prefixIcon: Icon(Icons.lock, color: Colors.purple),
                     ),
                   ),

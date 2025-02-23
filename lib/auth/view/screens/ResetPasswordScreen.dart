@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart'; // لإظهار رسالة خطأ
 
 class ResetPasswordScreen extends StatefulWidget {
   const ResetPasswordScreen({super.key});
@@ -13,20 +12,42 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
   final TextEditingController _confirmPasswordController =
       TextEditingController();
 
+  bool isPasswordValid = true;
+  bool isConfirmPasswordValid = true;
+  String? _errorMessage;
+  String? _successMessage;
+
   void _validateAndSubmit() {
     String password = _passwordController.text;
     String confirmPassword = _confirmPasswordController.text;
 
-    if (password.length < 8) {
-      Fluttertoast.showToast(msg: "Password must be at least 8 characters!");
+    setState(() {
+      isPasswordValid = password.length >= 8;
+      isConfirmPasswordValid = confirmPassword == password;
+      _errorMessage = null;
+      _successMessage = null;
+    });
+
+    if (!isPasswordValid) {
+      setState(() {
+        _errorMessage = "Password must be at least 8 characters!";
+      });
       return;
     }
-    if (password != confirmPassword) {
-      Fluttertoast.showToast(msg: "Passwords do not match!");
+    if (!isConfirmPasswordValid) {
+      setState(() {
+        _errorMessage = "Passwords do not match!";
+      });
       return;
     }
 
-    Navigator.pushNamed(context, '/reset_password_confirmation');
+    setState(() {
+      _successMessage = "Password reset successfully!";
+    });
+
+    Future.delayed(Duration(seconds: 1), () {
+      Navigator.pushNamed(context, '/reset_password_confirmation');
+    });
   }
 
   @override
@@ -55,32 +76,69 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                 ),
               ),
               SizedBox(height: 20),
+
+              // Password Field
               TextField(
                 controller: _passwordController,
                 obscureText: true,
+                onChanged: (_) => setState(() {
+                  isPasswordValid = _passwordController.text.length >= 8;
+                }),
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: Color(0xffEEEEEE),
                   labelText: "New Password",
-                  labelStyle: TextStyle(color: Color(0xff626262)),
-                  border: OutlineInputBorder(),
+                  labelStyle: TextStyle(
+                      color: isPasswordValid ? Colors.black : Colors.red),
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: isPasswordValid ? Colors.green : Colors.red,
+                    ),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: isPasswordValid ? Colors.green : Colors.red,
+                    ),
+                  ),
                   prefixIcon: Icon(Icons.key, color: Colors.purple),
                 ),
+                style: TextStyle(
+                    color: isPasswordValid ? Colors.black : Colors.red),
               ),
               SizedBox(height: 20),
+
+              // Confirm Password Field
               TextField(
                 controller: _confirmPasswordController,
                 obscureText: true,
+                onChanged: (_) => setState(() {
+                  isConfirmPasswordValid = _confirmPasswordController.text ==
+                      _passwordController.text;
+                }),
                 decoration: InputDecoration(
                   filled: true,
                   fillColor: Color(0xffEEEEEE),
                   labelText: "Confirm New Password",
-                  labelStyle: TextStyle(color: Color(0xff626262)),
-                  border: OutlineInputBorder(),
+                  labelStyle: TextStyle(
+                      color:
+                          isConfirmPasswordValid ? Colors.black : Colors.red),
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: isConfirmPasswordValid ? Colors.green : Colors.red,
+                    ),
+                  ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: isConfirmPasswordValid ? Colors.green : Colors.red,
+                    ),
+                  ),
                   prefixIcon: Icon(Icons.key, color: Colors.purple),
                 ),
+                style: TextStyle(
+                    color: isConfirmPasswordValid ? Colors.black : Colors.red),
               ),
               SizedBox(height: 20),
+
               Row(
                 children: [
                   Icon(Icons.warning_amber_outlined, color: Colors.purple),
@@ -89,6 +147,28 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                 ],
               ),
               SizedBox(height: 20),
+
+              if (_errorMessage != null)
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  child: Center(
+                    child: Text(
+                      _errorMessage!,
+                      style: TextStyle(color: Colors.red, fontSize: 14),
+                    ),
+                  ),
+                ),
+              if (_successMessage != null)
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  child: Center(
+                    child: Text(
+                      _successMessage!,
+                      style: TextStyle(color: Colors.green, fontSize: 14),
+                    ),
+                  ),
+                ),
+
               Center(
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
@@ -107,89 +187,3 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
     );
   }
 }
-
-// import 'package:flutter/material.dart';
-// import 'package:milovet/shared/color_manager.dart';
-
-// class ResetPasswordScreen extends StatefulWidget {
-//   const ResetPasswordScreen({super.key});
-
-//   @override
-//   State<ResetPasswordScreen> createState() => _ResetPasswordScreenState();
-// }
-
-// class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         centerTitle: true,
-//         title: Text(
-//           "Reset Password",
-//           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-//         ),
-//       ),
-//       body: Padding(
-//         padding: const EdgeInsets.all(20.0),
-//         child: SingleChildScrollView(
-//           child: Column(
-//             mainAxisAlignment: MainAxisAlignment.center,
-//             crossAxisAlignment: CrossAxisAlignment.center,
-//             children: [
-//               Text(
-//                 "Enter New Password",
-//                 style: TextStyle(
-//                     fontSize: 27,
-//                     fontWeight: FontWeight.bold,
-//                     color: Colors.purple),
-//               ),
-//               SizedBox(height: 20),
-//               TextField(
-//                 obscureText: true,
-//                 decoration: InputDecoration(
-//                   filled: true,
-//                   fillColor: Color(0xffEEEEEE),
-//                   labelText: "New Password",
-//                   labelStyle: TextStyle(color: const Color(0xff626262)),
-//                   border: OutlineInputBorder(),
-//                   prefixIcon: Icon(Icons.key, color: Colors.purple),
-//                 ),
-//               ),
-//               SizedBox(height: 20),
-//               TextField(
-//                 obscureText: true,
-//                 decoration: InputDecoration(
-//                   filled: true,
-//                   fillColor: Color(0xffEEEEEE),
-//                   labelText: "Confirm New Password",
-//                   labelStyle: TextStyle(color: const Color(0xff626262)),
-//                   border: OutlineInputBorder(),
-//                   prefixIcon: Icon(Icons.key, color: Colors.purple),
-//                 ),
-//               ),
-//               SizedBox(height: 20),
-//               Row(
-//                 children: [
-//                   Icon(Icons.warning_amber_outlined, color: Colors.purple),
-//                   SizedBox(width: 8),
-//                   Text('Must be at least 8 characters'),
-//                 ],
-//               ),
-//               SizedBox(height: 20),
-//               ElevatedButton(
-//                 style: ElevatedButton.styleFrom(
-//                   backgroundColor: Colors.purple,
-//                   minimumSize: Size(290, 64),
-//                 ),
-//                 onPressed: () {
-//                   Navigator.pushNamed(context, '/reset_password_confirmation');
-//                 },
-//                 child: Text("Continue", style: TextStyle(color: Colors.white)),
-//               ),
-//             ],
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }

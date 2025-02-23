@@ -105,7 +105,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                   minimumSize: Size(290, 64),
                   side: BorderSide(color: Colors.purple, width: 1),
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(40),
+                    borderRadius: BorderRadius.circular(50),
                   ),
                 ),
                 onPressed: () {
