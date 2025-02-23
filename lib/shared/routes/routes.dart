@@ -4,7 +4,8 @@ class Routes {
   static const String getStarted = '/get_started';
   static const String login = '/login';
   static const String signUp = '/signup';
-
+  static const String doctorOrUSer = '/doctor_user';
+  static const String homeScreen = '/home_screen';
   static const String signUpConfirmation = '/signup_confirmation';
   static const String forgotPassword = '/forgot_password';
   static const String emailVerification = '/email_verification';
