@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:milovet/auth/view/screens/EmailVerificationScreen.dart';
+import 'package:milovet/auth/view/screens/ForgotPasswordScreen.dart';
+import 'package:milovet/auth/view/screens/ResetPasswordConfirmationScreen.dart';
+import 'package:milovet/auth/view/screens/ResetPasswordScreen.dart';
+import 'package:milovet/auth/view/screens/SignUpConfirmationScreen.dart';
 import 'package:milovet/auth/view/screens/login_screen.dart';
-import 'package:milovet/auth/view/screens/register_screen.dart';
+import 'package:milovet/auth/view/screens/signUp_screen.dart';
 import 'package:milovet/get_started/view/screens/get_started.dart';
+import 'package:milovet/shared/home_screen/home_screen.dart';
 import 'package:milovet/shared/routes/routes.dart';
 import 'package:milovet/get_started/view/screens/onboarding_screen_one.dart';
 import 'package:milovet/get_started/view/screens/onboarding_screen_two.dart';
+import 'package:milovet/shared/widgets/doctor_or_user.dart';
 
 class RouteGenerator {
   static Route<dynamic> getRoute(RouteSettings settings) {
@@ -15,10 +22,30 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const OnboardingScreenTwo());
       case Routes.getStarted:
         return MaterialPageRoute(builder: (_) => const GetStarted());
-        case Routes.login:
+      case Routes.login:
         return MaterialPageRoute(builder: (_) => const LoginScreen());
-        case Routes.register:
-        return MaterialPageRoute(builder: (_) => const RegisterScreen());
+      case Routes.signUp:
+        return MaterialPageRoute(builder: (_) => const SignUpScreen());
+      case Routes.doctorOrUSer:
+        return MaterialPageRoute(
+            builder: (_) => DoctorOrUser(), settings: settings);
+      case Routes.homeScreen:
+        return MaterialPageRoute(
+            builder: (_) => HomeScreen(), settings: settings);
+      case Routes.signUpConfirmation:
+        return MaterialPageRoute(
+            builder: (_) => const SignUpConfirmationScreen());
+      case Routes.forgotPassword:
+        return MaterialPageRoute(builder: (_) => const ForgotPasswordScreen());
+      case Routes.emailVerification:
+        return MaterialPageRoute(
+            builder: (_) => const EmailVerificationScreen());
+      case Routes.resetPassword:
+        return MaterialPageRoute(builder: (_) => const ResetPasswordScreen());
+      case Routes.resetPasswordConfirmation:
+        return MaterialPageRoute(
+            builder: (_) => const ResetPasswordConfirmationScreen());
+
       default:
         return _undefinedRoute();
     }

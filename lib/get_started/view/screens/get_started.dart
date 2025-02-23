@@ -39,7 +39,7 @@ class GetStarted extends StatelessWidget {
                 padding: EdgeInsets.only(top: 107.0.h, right: 51.w, left: 51.w),
                 child: ElevatedButton(
                   onPressed: () {
-                    Navigator.of(context).pushReplacementNamed(Routes.login);
+                    Navigator.of(context).pushReplacementNamed(Routes.doctorOrUSer);
                   },
                   child: Text(
                     'Get started',
