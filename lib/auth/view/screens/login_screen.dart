@@ -53,7 +53,7 @@ class _LoginScreenState extends State<LoginScreen> {
         centerTitle: true,
         title: Text(
           "Login",
-          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold),
         ),
       ),
       body: GestureDetector(
