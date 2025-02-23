@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -67,11 +68,11 @@ class _LoginScreenState extends State<LoginScreen> {
                   Text(
                     "Welcome Back!",
                     style: TextStyle(
-                        fontSize: 24,
+                        fontSize: 24.sp,
                         fontWeight: FontWeight.bold,
                         color: Colors.purple),
                   ),
-                  SizedBox(height: 40),
+                  SizedBox(height: 40.h),
 
                   // Email Field
                   TextField(
@@ -90,7 +91,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       prefixIcon: Icon(Icons.email, color: Colors.purple),
                     ),
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 20.h),
 
                   // Password Field
                   TextField(
@@ -110,7 +111,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       prefixIcon: Icon(Icons.lock, color: Colors.purple),
                     ),
                   ),
-                  SizedBox(height: 10),
+                  SizedBox(height: 10.h),
 
                   // Forgot Password
                   Align(
@@ -125,19 +126,19 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 20.h),
 
                   // Login Button
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.purple,
-                      minimumSize: Size(double.infinity, 50),
+                      minimumSize: Size(290.w, 64.h),
                     ),
                     onPressed: _handleLogin,
                     child: Text("Login", style: TextStyle(color: Colors.white)),
                   ),
 
-                  SizedBox(height: 10),
+                  SizedBox(height: 10.h),
 
                   // Signup Option
                   Row(
@@ -156,9 +157,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     ],
                   ),
 
-                  SizedBox(height: 20),
+                  SizedBox(height: 20.h),
                   Text('_______ Or continue with _______'),
-                  SizedBox(height: 20),
+                  SizedBox(height: 20.h),
 
                   // Social Login
                   Row(
@@ -194,7 +195,7 @@ class _LoginScreenState extends State<LoginScreen> {
           onTap: () {},
           child: Padding(
             padding: EdgeInsets.all(8),
-            child: Icon(icon, size: 40, color: Colors.purple),
+            child: Icon(icon, size: 40.sp, color: Colors.purple),
           ),
         ),
       ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ForgotPasswordScreen extends StatefulWidget {
   const ForgotPasswordScreen({super.key});
@@ -54,7 +55,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
         centerTitle: true,
         title: Text(
           "Forgot Password",
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
         ),
       ),
       body: Padding(
@@ -63,15 +64,15 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(height: 20),
+              SizedBox(height: 20.h),
               Text(
                 "Mail Address Here",
                 style: TextStyle(
-                    fontSize: 27,
+                    fontSize: 27.sp,
                     fontWeight: FontWeight.bold,
                     color: Colors.purple),
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 10.h),
               Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
@@ -79,7 +80,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                   style: TextStyle(fontSize: 13, color: Colors.black),
                 ),
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 10.h),
               TextField(
                 controller: _emailController,
                 keyboardType: TextInputType.emailAddress,
@@ -99,11 +100,11 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                 style:
                     TextStyle(color: isEmailValid ? Colors.black : Colors.red),
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 20.h),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.purple,
-                  minimumSize: Size(290, 64),
+                  minimumSize: Size(290.w, 64.h),
                 ),
                 onPressed: _resetPassword,
                 child: Text("Reset Password",

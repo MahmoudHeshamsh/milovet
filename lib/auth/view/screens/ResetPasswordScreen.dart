@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ResetPasswordScreen extends StatefulWidget {
   const ResetPasswordScreen({super.key});
@@ -57,7 +58,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
         centerTitle: true,
         title: Text(
           "Reset Password",
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
         ),
       ),
       body: Padding(
@@ -70,12 +71,12 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                 child: Text(
                   "Enter New Password",
                   style: TextStyle(
-                      fontSize: 27,
+                      fontSize: 27.sp,
                       fontWeight: FontWeight.bold,
                       color: Colors.purple),
                 ),
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 20.h),
 
               // Password Field
               TextField(
@@ -105,7 +106,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                 style: TextStyle(
                     color: isPasswordValid ? Colors.black : Colors.red),
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 20.h),
 
               // Confirm Password Field
               TextField(
@@ -137,16 +138,16 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                 style: TextStyle(
                     color: isConfirmPasswordValid ? Colors.black : Colors.red),
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 20.h),
 
               Row(
                 children: [
                   Icon(Icons.warning_amber_outlined, color: Colors.purple),
-                  SizedBox(width: 8),
+                  SizedBox(width: 8.w),
                   Text('Must be at least 8 characters'),
                 ],
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 20.h),
 
               if (_errorMessage != null)
                 Padding(
@@ -154,7 +155,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                   child: Center(
                     child: Text(
                       _errorMessage!,
-                      style: TextStyle(color: Colors.red, fontSize: 14),
+                      style: TextStyle(color: Colors.red, fontSize: 14.sp),
                     ),
                   ),
                 ),
@@ -164,7 +165,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                   child: Center(
                     child: Text(
                       _successMessage!,
-                      style: TextStyle(color: Colors.green, fontSize: 14),
+                      style: TextStyle(color: Colors.green, fontSize: 14.sp),
                     ),
                   ),
                 ),
@@ -173,7 +174,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.purple,
-                    minimumSize: Size(290, 64),
+                    minimumSize: Size(290.w, 64.h),
                   ),
                   onPressed: _validateAndSubmit,
                   child:

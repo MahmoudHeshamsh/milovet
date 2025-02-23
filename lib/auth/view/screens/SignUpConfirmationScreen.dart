@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SignUpConfirmationScreen extends StatefulWidget {
   const SignUpConfirmationScreen({super.key});
@@ -20,24 +21,24 @@ class _SignUpConfirmationScreenState extends State<SignUpConfirmationScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Icon(Icons.check_circle, size: 100, color: Colors.purple),
-              SizedBox(height: 20),
+              Icon(Icons.check_circle, size: 100.sp, color: Colors.purple),
+              SizedBox(height: 20.h),
               Text(
                 "Congratulations",
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 10),
+              SizedBox(height: 10.h),
               RichText(
                 textAlign: TextAlign.center,
                 text: TextSpan(
-                  style: TextStyle(fontSize: 16, color: Colors.black),
+                  style: TextStyle(fontSize: 16.sp, color: Colors.black),
                   children: [
                     TextSpan(text: "Welcome to "),
                     TextSpan(
                       text: "Milovet",
                       style: TextStyle(
                         color: Colors.purple,
-                        fontSize: 16,
+                        fontSize: 16.sp,
                         fontWeight: FontWeight.bold,
                         decoration: TextDecoration.underline,
                       ),

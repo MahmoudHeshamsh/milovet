@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -57,7 +58,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         centerTitle: true,
         title: Text(
           "Sign Up",
-          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold),
         ),
       ),
       body: Container(
@@ -69,11 +70,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
               Text(
                 "Create Account",
                 style: TextStyle(
-                    fontSize: 24,
+                    fontSize: 24.sp,
                     fontWeight: FontWeight.bold,
                     color: Colors.purple),
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 20.h),
 
               // Email Field
               TextField(
@@ -92,7 +93,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 style:
                     TextStyle(color: isEmailValid ? Colors.black : Colors.red),
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 20.h),
 
               // Password Field
               TextField(
@@ -112,7 +113,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 style: TextStyle(
                     color: isPasswordValid ? Colors.black : Colors.red),
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 20.h),
 
               // Confirm Password Field
               TextField(
@@ -133,13 +134,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 style: TextStyle(
                     color: isConfirmPasswordValid ? Colors.black : Colors.red),
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 20.h),
 
               // Sign Up Button
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.purple,
-                  minimumSize: Size(290, 64),
+                  minimumSize: Size(290.w, 64.h),
                 ),
                 onPressed: validateAndSignUp,
                 child: Text("Sign Up", style: TextStyle(color: Colors.white)),
