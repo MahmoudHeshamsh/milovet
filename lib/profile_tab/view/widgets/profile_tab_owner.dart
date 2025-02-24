@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:milovet/shared/color_manager.dart';
+import 'package:milovet/shared/routes/routes.dart';
 
 class ProfileTabOwner extends StatelessWidget {
   const ProfileTabOwner({super.key});
@@ -54,25 +55,30 @@ class ProfileTabOwner extends StatelessWidget {
                         borderRadius: BorderRadius.circular(5.sp)),
                     height: 45.h,
                     width: 330.w,
-                    child: Row(
-                      children: [
-                        SizedBox(width: 5.w,),
-                        Image.asset(
-                          'assets/images/edit_profile.png',
-                          height: 24.h,
-                          width: 24.w,
-                        ),
-                        SizedBox(
-                          width: 10.0.w,
-                        ),
-                        Text(
-                          'Edit My Profile',
-                          style: Theme.of(context)
-                              .textTheme
-                              .titleSmall!
-                              .copyWith(fontSize: 14.sp),
-                        ),
-                      ],
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).pushNamed(Routes.editProfile);
+                      },
+                      child: Row(
+                        children: [
+                          SizedBox(width: 5.w,),
+                          Image.asset(
+                            'assets/images/edit_profile.png',
+                            height: 24.h,
+                            width: 24.w,
+                          ),
+                          SizedBox(
+                            width: 10.0.w,
+                          ),
+                          Text(
+                            'Edit My Profile',
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleSmall!
+                                .copyWith(fontSize: 14.sp),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                   SizedBox(

@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:milovet/auth/view/screens/EmailVerificationScreen.dart';
 import 'package:milovet/auth/view/screens/ForgotPasswordScreen.dart';
-import 'package:milovet/auth/view/screens/MilovetApp_screen.dart';
 import 'package:milovet/auth/view/screens/ResetPasswordConfirmationScreen.dart';
 import 'package:milovet/auth/view/screens/ResetPasswordScreen.dart';
 import 'package:milovet/auth/view/screens/SignUpConfirmationScreen.dart';
-import 'package:milovet/auth/view/screens/chatPage_screen.dart';
 import 'package:milovet/auth/view/screens/login_screen.dart';
 import 'package:milovet/auth/view/screens/signUp_screen.dart';
 import 'package:milovet/get_started/view/screens/get_started.dart';
+import 'package:milovet/profile_tab/view/screens/edit_profile_screen.dart';
 import 'package:milovet/shared/home_screen/home_screen.dart';
 import 'package:milovet/shared/routes/routes.dart';
 import 'package:milovet/get_started/view/screens/onboarding_screen_one.dart';
@@ -36,7 +35,7 @@ class RouteGenerator {
             builder: (_) => HomeScreen(), settings: settings);
       case Routes.signUpConfirmation:
         return MaterialPageRoute(
-            builder: (_) => const SignUpConfirmationScreen());
+            builder: (_) =>  const SignUpConfirmationScreen());
       case Routes.forgotPassword:
         return MaterialPageRoute(builder: (_) => const ForgotPasswordScreen());
       case Routes.emailVerification:
@@ -47,11 +46,9 @@ class RouteGenerator {
       case Routes.resetPasswordConfirmation:
         return MaterialPageRoute(
             builder: (_) => const ResetPasswordConfirmationScreen());
-      case Routes.chatPage:
-        return MaterialPageRoute(builder: (_) => const ChatPageScreen());
-      case Routes.chatList:
-        return MaterialPageRoute(builder: (_) => const ChatListScreen());
-
+      case Routes.editProfile:
+        return MaterialPageRoute(
+            builder: (_) => const EditProfileScreen());
       default:
         return _undefinedRoute();
     }

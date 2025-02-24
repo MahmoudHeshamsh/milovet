@@ -10,6 +10,7 @@ class Routes {
   static const String forgotPassword = '/forgot_password';
   static const String emailVerification = '/email_verification';
   static const String resetPassword = '/reset_password';
+  static const String editProfile = '/edit_profile';
   static const String resetPasswordConfirmation =
       '/reset_password_confirmation';
   static const String chatPage = '/chatPage';
