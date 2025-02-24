@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:milovet/auth/view/screens/EmailVerificationScreen.dart';
 import 'package:milovet/auth/view/screens/ForgotPasswordScreen.dart';
+import 'package:milovet/auth/view/screens/MilovetApp_screen.dart';
 import 'package:milovet/auth/view/screens/ResetPasswordConfirmationScreen.dart';
 import 'package:milovet/auth/view/screens/ResetPasswordScreen.dart';
 import 'package:milovet/auth/view/screens/SignUpConfirmationScreen.dart';
@@ -48,6 +49,8 @@ class RouteGenerator {
             builder: (_) => const ResetPasswordConfirmationScreen());
       case Routes.chatPage:
         return MaterialPageRoute(builder: (_) => const ChatPageScreen());
+      case Routes.chatList:
+        return MaterialPageRoute(builder: (_) => const ChatListScreen());
 
       default:
         return _undefinedRoute();
