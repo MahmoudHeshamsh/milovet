@@ -70,11 +70,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     style: TextStyle(
                         fontSize: 24.sp,
                         fontWeight: FontWeight.bold,
-                        color: Colors.purple),
+                        color: Color(0xFF6F3797)),
                   ),
                   SizedBox(height: 40.h),
-
-                  // Email Field
                   TextField(
                     controller: _emailController,
                     keyboardType: TextInputType.emailAddress,
@@ -88,12 +86,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       errorText:
                           isEmailValid ? null : "Must be at least 8 characters",
                       border: OutlineInputBorder(),
-                      prefixIcon: Icon(Icons.email, color: Colors.purple),
+                      prefixIcon: Icon(Icons.email, color: Color(0xFF6F3797)),
                     ),
                   ),
                   SizedBox(height: 20.h),
-
-                  // Password Field
                   TextField(
                     controller: _passwordController,
                     obscureText: true,
@@ -108,12 +104,10 @@ class _LoginScreenState extends State<LoginScreen> {
                           ? null
                           : "Must be at least 8 characters",
                       border: OutlineInputBorder(),
-                      prefixIcon: Icon(Icons.lock, color: Colors.purple),
+                      prefixIcon: Icon(Icons.lock, color: Color(0xFF6F3797)),
                     ),
                   ),
                   SizedBox(height: 10.h),
-
-                  // Forgot Password
                   Align(
                     alignment: Alignment.centerRight,
                     child: GestureDetector(
@@ -122,46 +116,41 @@ class _LoginScreenState extends State<LoginScreen> {
                       },
                       child: Text(
                         "Forgot your password?",
-                        style: TextStyle(color: Colors.purple),
+                        style: TextStyle(color: Color(0xFF6F3797)),
                       ),
                     ),
                   ),
                   SizedBox(height: 20.h),
-
-                  // Login Button
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.purple,
+                      backgroundColor: Color(0xFF6F3797),
                       minimumSize: Size(290.w, 64.h),
                     ),
                     onPressed: _handleLogin,
                     child: Text("Login", style: TextStyle(color: Colors.white)),
                   ),
-
                   SizedBox(height: 10.h),
-
-                  // Signup Option
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("Don’t have an account?"),
+                      Text(
+                        "Don’t have an account?",
+                        style: TextStyle(color: Color(0xFF221F1F)),
+                      ),
                       TextButton(
                         onPressed: () {
                           Navigator.pushNamed(context, '/signup');
                         },
                         child: Text(
                           "Create new account",
-                          style: TextStyle(color: Colors.purple),
+                          style: TextStyle(color: Color(0xFF6F3797)),
                         ),
                       ),
                     ],
                   ),
-
                   SizedBox(height: 20.h),
                   Text('_______ Or continue with _______'),
                   SizedBox(height: 20.h),
-
-                  // Social Login
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -185,7 +174,7 @@ class _LoginScreenState extends State<LoginScreen> {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
-        color: Colors.purple.withOpacity(0.1),
+        color: Color(0xFF6F3797).withOpacity(0.1),
       ),
       child: Material(
         color: Colors.transparent,
@@ -195,7 +184,7 @@ class _LoginScreenState extends State<LoginScreen> {
           onTap: () {},
           child: Padding(
             padding: EdgeInsets.all(8),
-            child: Icon(icon, size: 40.sp, color: Colors.purple),
+            child: Icon(icon, size: 40.sp, color: Color(0xFF6F3797)),
           ),
         ),
       ),

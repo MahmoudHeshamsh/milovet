@@ -35,7 +35,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                 style: TextStyle(
                     fontSize: 27.sp,
                     fontWeight: FontWeight.bold,
-                    color: Colors.purple),
+                    color: Color(0xFF6F3797)),
               ),
               SizedBox(height: 10.h),
               Text(
@@ -60,7 +60,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
-                            borderSide: BorderSide(color: Colors.purple),
+                            borderSide: BorderSide(color: Color(0xFF6F3797)),
                           ),
                         ),
                       ),
@@ -91,7 +91,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
               SizedBox(height: 20.h),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.purple,
+                  backgroundColor: Color(0xFF6F3797),
                   minimumSize: Size(290.w, 64.h),
                 ),
                 onPressed: () {
@@ -104,7 +104,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Color(0xffEEEEEE),
                   minimumSize: Size(290.w, 64.h),
-                  side: BorderSide(color: Colors.purple, width: 1.w),
+                  side: BorderSide(color: Color(0xFF6F3797), width: 1.w),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(50),
                   ),
@@ -114,7 +114,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                 },
                 child: Text(
                   "Send again",
-                  style: TextStyle(color: Colors.purple),
+                  style: TextStyle(color: Color(0xFF6F3797)),
                 ),
               ),
             ],

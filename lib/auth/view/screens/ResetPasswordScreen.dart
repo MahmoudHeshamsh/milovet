@@ -73,12 +73,10 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                   style: TextStyle(
                       fontSize: 27.sp,
                       fontWeight: FontWeight.bold,
-                      color: Colors.purple),
+                      color: Color(0xFF6F3797)),
                 ),
               ),
               SizedBox(height: 20.h),
-
-              // Password Field
               TextField(
                 controller: _passwordController,
                 obscureText: true,
@@ -101,14 +99,12 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                       color: isPasswordValid ? Colors.green : Colors.red,
                     ),
                   ),
-                  prefixIcon: Icon(Icons.key, color: Colors.purple),
+                  prefixIcon: Icon(Icons.key, color: Color(0xFF6F3797)),
                 ),
                 style: TextStyle(
                     color: isPasswordValid ? Colors.black : Colors.red),
               ),
               SizedBox(height: 20.h),
-
-              // Confirm Password Field
               TextField(
                 controller: _confirmPasswordController,
                 obscureText: true,
@@ -133,22 +129,20 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                       color: isConfirmPasswordValid ? Colors.green : Colors.red,
                     ),
                   ),
-                  prefixIcon: Icon(Icons.key, color: Colors.purple),
+                  prefixIcon: Icon(Icons.key, color: Color(0xFF6F3797)),
                 ),
                 style: TextStyle(
                     color: isConfirmPasswordValid ? Colors.black : Colors.red),
               ),
               SizedBox(height: 20.h),
-
               Row(
                 children: [
-                  Icon(Icons.warning_amber_outlined, color: Colors.purple),
+                  Icon(Icons.warning_amber_outlined, color: Color(0xFF6F3797)),
                   SizedBox(width: 8.w),
                   Text('Must be at least 8 characters'),
                 ],
               ),
               SizedBox(height: 20.h),
-
               if (_errorMessage != null)
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 10),
@@ -169,11 +163,10 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                     ),
                   ),
                 ),
-
               Center(
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.purple,
+                    backgroundColor: Color(0xFF6F3797),
                     minimumSize: Size(290.w, 64.h),
                   ),
                   onPressed: _validateAndSubmit,

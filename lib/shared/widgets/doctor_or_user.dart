@@ -23,7 +23,7 @@ class DoctorOrUser extends StatelessWidget {
                     width: 300.w,
                     height: 86.h,
                     child: Text(
-                      'Are you a Doctor or a pet   owner ?',
+                      'Are you a Doctor or a pet owner ?',
                       style: Theme.of(context).textTheme.titleLarge,
                     )),
               ),
@@ -44,7 +44,7 @@ class DoctorOrUser extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 17.0.w),
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.purple,
+                    backgroundColor: ColorManager.primaryColor,
                     minimumSize: Size(290.w, 64.h),
                   ),
                   onPressed: () {
@@ -64,7 +64,8 @@ class DoctorOrUser extends StatelessWidget {
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Color(0xffEEEEEE),
                     minimumSize: Size(290.w, 64.h),
-                    side: BorderSide(color: Colors.purple, width: 1.w),
+                    side: BorderSide(
+                        color: ColorManager.primaryColor, width: 1.w),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(50),
                     ),
@@ -76,7 +77,7 @@ class DoctorOrUser extends StatelessWidget {
                   },
                   child: Text(
                     "Pet Owner",
-                    style: TextStyle(color: Colors.purple),
+                    style: TextStyle(color: ColorManager.primaryColor),
                   ),
                 ),
               ),

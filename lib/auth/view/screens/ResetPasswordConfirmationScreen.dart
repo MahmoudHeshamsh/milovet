@@ -38,11 +38,11 @@ class _ResetPasswordConfirmationScreenState
               SizedBox(height: 30.h),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.purple,
+                  backgroundColor: Color(0xFF6F3797),
                   minimumSize: Size(290.w, 64.h),
                 ),
                 onPressed: () {
-                  Navigator.pushNamed(context, '/chatList');
+                  Navigator.pushNamed(context, '/doctor_user');
                 },
                 child: Text("Let's go", style: TextStyle(color: Colors.white)),
               ),

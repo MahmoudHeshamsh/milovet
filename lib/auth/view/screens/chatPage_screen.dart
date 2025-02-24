@@ -27,7 +27,7 @@ class ChatPageScreen extends StatelessWidget {
         backgroundColor: Colors.white,
         elevation: 0.5,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.purple),
+          icon: Icon(Icons.arrow_back, color: Color(0xFF6F3797)),
           onPressed: () {},
         ),
         title: Row(
@@ -86,8 +86,9 @@ class ChatPageScreen extends StatelessWidget {
                       constraints: BoxConstraints(
                           maxWidth: MediaQuery.of(context).size.width * 0.7),
                       decoration: BoxDecoration(
-                        color:
-                            message["isMe"] ? Colors.purple : Colors.grey[300],
+                        color: message["isMe"]
+                            ? Color(0xFF6F3797)
+                            : Colors.grey[300],
                         borderRadius: BorderRadius.circular(15),
                       ),
                       child: Text(
@@ -119,10 +120,9 @@ class ChatPageScreen extends StatelessWidget {
                       contentPadding:
                           EdgeInsets.symmetric(horizontal: 20, vertical: 12),
                       suffixIcon: Padding(
-                        padding: EdgeInsets.all(
-                            5), // مسافة صغيرة عشان يكون مظبوط جوه
+                        padding: EdgeInsets.all(5),
                         child: CircleAvatar(
-                          backgroundColor: Colors.purple,
+                          backgroundColor: Color(0xFF6F3797),
                           child: IconButton(
                             icon: Icon(Icons.add, color: Colors.white),
                             onPressed: () {},
@@ -134,13 +134,11 @@ class ChatPageScreen extends StatelessWidget {
                 ),
                 SizedBox(width: 10.w),
                 CircleAvatar(
-                  backgroundColor: Colors.purple,
+                  backgroundColor: Color(0xFF6F3797),
                   child: IconButton(
                     icon: Image.asset('assets/images/Send 2.png',
                         width: 24.w, height: 24.h),
-                    onPressed: () {
-                      // وظيفة الإرسال هنا
-                    },
+                    onPressed: () {},
                   ),
                 ),
               ],
