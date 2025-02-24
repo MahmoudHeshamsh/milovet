@@ -42,7 +42,7 @@ class _ResetPasswordConfirmationScreenState
                   minimumSize: Size(290.w, 64.h),
                 ),
                 onPressed: () {
-                  Navigator.pushNamed(context, '/chatPage');
+                  Navigator.pushNamed(context, '/chatList');
                 },
                 child: Text("Let's go", style: TextStyle(color: Colors.white)),
               ),
