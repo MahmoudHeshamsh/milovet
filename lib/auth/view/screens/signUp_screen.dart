@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:milovet/shared/color_manager.dart';
+import 'package:milovet/shared/routes/routes.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
@@ -32,18 +34,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
     if (isEmailValid && isPasswordValid && isConfirmPasswordValid) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
+        const SnackBar(
           content: Text("Sign Up Successful!"),
           backgroundColor: Colors.green,
         ),
       );
-
-      Future.delayed(Duration(seconds: 1), () {
-        Navigator.pushNamed(context, '/signup_confirmation');
+    final args = ModalRoute.of(context)?.settings.arguments as bool?;
+    bool isPetOwner = args ?? true;
+      Future.delayed(const Duration(seconds: 1), () {
+        Navigator.of(context).pushReplacementNamed(Routes.congratulation,arguments: isPetOwner);
       });
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
+        const SnackBar(
           content: Text("Please correct the errors before proceeding"),
           backgroundColor: Colors.red,
         ),
@@ -56,9 +59,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
+        backgroundColor: Colors.transparent,
         title: Text(
           "Sign Up",
-          style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold),
+          style: TextStyle(fontSize: 24.sp,
+              fontWeight: FontWeight.bold,
+              color: ColorManager.black),
         ),
       ),
       body: Container(
@@ -73,21 +79,21 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   style: TextStyle(
                       fontSize: 24.sp,
                       fontWeight: FontWeight.bold,
-                      color: Color(0xFF6F3797)),
+                      color: const Color(0xFF6F3797)),
                 ),
                 SizedBox(height: 20.h),
                 TextField(
                   controller: emailController,
                   decoration: InputDecoration(
                     filled: true,
-                    fillColor: Color(0xffEEEEEE),
+                    fillColor: const Color(0xffEEEEEE),
                     labelText: "Email",
                     labelStyle: TextStyle(
                         color: isEmailValid ? Colors.black : Colors.red),
                     errorText:
                         isEmailValid ? null : "Must be at least 8 characters",
-                    border: OutlineInputBorder(),
-                    prefixIcon: Icon(Icons.email, color: Color(0xFF6F3797)),
+                    border: const OutlineInputBorder(),
+                    prefixIcon: const Icon(Icons.email, color: Color(0xFF6F3797)),
                   ),
                   style: TextStyle(
                       color: isEmailValid ? Colors.black : Colors.red),
@@ -98,15 +104,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   obscureText: true,
                   decoration: InputDecoration(
                     filled: true,
-                    fillColor: Color(0xffEEEEEE),
+                    fillColor: const Color(0xffEEEEEE),
                     labelText: "Password",
                     labelStyle: TextStyle(
                         color: isPasswordValid ? Colors.black : Colors.red),
                     errorText: isPasswordValid
                         ? null
                         : "Must be at least 8 characters",
-                    border: OutlineInputBorder(),
-                    prefixIcon: Icon(Icons.lock, color: Color(0xFF6F3797)),
+                    border: const OutlineInputBorder(),
+                    prefixIcon: const Icon(Icons.lock, color: Color(0xFF6F3797)),
                   ),
                   style: TextStyle(
                       color: isPasswordValid ? Colors.black : Colors.red),
@@ -117,7 +123,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   obscureText: true,
                   decoration: InputDecoration(
                     filled: true,
-                    fillColor: Color(0xffEEEEEE),
+                    fillColor: const Color(0xffEEEEEE),
                     labelText: "Confirm Password",
                     labelStyle: TextStyle(
                         color:
@@ -125,8 +131,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     errorText: isConfirmPasswordValid
                         ? null
                         : "Passwords do not match",
-                    border: OutlineInputBorder(),
-                    prefixIcon: Icon(Icons.lock, color: Color(0xFF6F3797)),
+                    border: const OutlineInputBorder(),
+                    prefixIcon: const Icon(Icons.lock, color: Color(0xFF6F3797)),
                   ),
                   style: TextStyle(
                       color:
@@ -135,17 +141,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 SizedBox(height: 20.h),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xFF6F3797),
+                    backgroundColor: const Color(0xFF6F3797),
                     minimumSize: Size(290.w, 64.h),
                   ),
                   onPressed: validateAndSignUp,
-                  child: Text("Sign Up", style: TextStyle(color: Colors.white)),
+                  child: const Text("Sign Up", style: TextStyle(color: Colors.white)),
                 ),
                 SizedBox(height: 10.h),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
+                    const Text(
                       "have you an account?",
                       style: TextStyle(color: Color(0xFF221F1F)),
                     ),
@@ -153,7 +159,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       onPressed: () {
                         Navigator.pushNamed(context, '/login');
                       },
-                      child: Text(
+                      child: const Text(
                         "Sign in",
                         style: TextStyle(color: Color(0xFF6F3797)),
                       ),
@@ -161,15 +167,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ],
                 ),
                 SizedBox(height: 20.h),
-                Text('_______ Or continue with _______'),
+                const Text('_______ Or continue with _______'),
                 SizedBox(height: 20.h),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     _socialButton(Icons.g_mobiledata),
-                    SizedBox(width: 5),
+                    const SizedBox(width: 5),
                     _socialButton(Icons.facebook),
-                    SizedBox(width: 5),
+                    const SizedBox(width: 5),
                     _socialButton(Icons.apple),
                   ],
                 )
@@ -185,7 +191,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
-        color: Color(0xFF6F3797).withOpacity(0.1),
+        color: const Color(0xFF6F3797).withOpacity(0.1),
       ),
       child: Material(
         color: Colors.transparent,
@@ -194,8 +200,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
           borderRadius: BorderRadius.circular(12),
           onTap: () {},
           child: Padding(
-            padding: EdgeInsets.all(8),
-            child: Icon(icon, size: 40.sp, color: Color(0xFF6F3797)),
+            padding: const EdgeInsets.all(8),
+            child: Icon(icon, size: 40.sp, color: const Color(0xFF6F3797)),
           ),
         ),
       ),

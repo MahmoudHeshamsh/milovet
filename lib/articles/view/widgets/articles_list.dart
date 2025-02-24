@@ -4,8 +4,8 @@ import 'package:milovet/articles/data/models/artticles_model.dart';
 import 'package:milovet/articles/view/widgets/articles_item.dart';
 
 class ArticlesList extends StatelessWidget {
-  ArticlesList(this._articles,{super.key});
-  List<ArticlesModel> _articles;
+  const ArticlesList(this._articles,{super.key});
+  final List<ArticlesModel> _articles;
   @override
   Widget build(BuildContext context) {
     return ListView.builder(

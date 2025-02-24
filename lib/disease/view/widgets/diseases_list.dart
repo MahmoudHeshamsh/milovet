@@ -4,8 +4,8 @@ import 'package:milovet/disease/data/models/disease_model.dart';
 import 'package:milovet/disease/view/widgets/disease_item.dart';
 
 class DiseasesList extends StatelessWidget {
-  DiseasesList(this._diseases, {super.key});
-  List<DiseaseModel> _diseases;
+  const DiseasesList(this._diseases, {super.key});
+  final List<DiseaseModel> _diseases;
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -13,6 +13,6 @@ class DiseasesList extends StatelessWidget {
       itemBuilder: (_, index) => Padding(
         padding:  EdgeInsets.only(top: 8.0.h, bottom: 8.h),
         child: DiseaseItem(_diseases[index]),
-      ),);;
+      ),);
   }
 }

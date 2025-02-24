@@ -18,7 +18,7 @@ class ProfileTabVeterinarian extends StatelessWidget {
           decoration: BoxDecoration(
               border: Border.all(color: ColorManager.primaryColor),
               shape: BoxShape.circle,
-              image: DecorationImage(
+              image: const DecorationImage(
                   fit: BoxFit.contain,
                   image: AssetImage('assets/images/doctor_image.png'))),
           height: 120.h,
@@ -27,7 +27,7 @@ class ProfileTabVeterinarian extends StatelessWidget {
         SizedBox(
           height: 20.h,
         ),
-        Container(
+        SizedBox(
           child: Column(
             children: [
               Text(
@@ -209,12 +209,18 @@ class ProfileTabVeterinarian extends StatelessWidget {
                         SizedBox(
                           width: 10.0.w,
                         ),
-                        Text(
-                          'Log out',
-                          style: Theme.of(context)
-                              .textTheme
-                              .titleSmall!
-                              .copyWith(fontSize: 14.sp),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.of(context)
+                                .pushReplacementNamed(Routes.login);
+                          },
+                          child: Text(
+                            'Log out',
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleSmall!
+                                .copyWith(fontSize: 14.sp),
+                          ),
                         ),
                       ],
                     ),

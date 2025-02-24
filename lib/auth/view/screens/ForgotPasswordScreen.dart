@@ -24,7 +24,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
         isEmailValid = false;
       });
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
+        const SnackBar(
           content: Text("Email must be at least 8 characters!"),
           backgroundColor: Colors.red,
         ),
@@ -37,13 +37,13 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
     });
 
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
+      const SnackBar(
         content: Text("Password reset link sent!"),
         backgroundColor: Colors.green,
       ),
     );
 
-    Future.delayed(Duration(seconds: 1), () {
+    Future.delayed(const Duration(seconds: 1), () {
       Navigator.pushNamed(context, '/reset_password');
     });
   }
@@ -70,10 +70,10 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                 style: TextStyle(
                     fontSize: 27.sp,
                     fontWeight: FontWeight.bold,
-                    color: Color(0xFF6F3797)),
+                    color: const Color(0xFF6F3797)),
               ),
               SizedBox(height: 10.h),
-              Align(
+              const Align(
                 alignment: Alignment.centerLeft,
                 child: Text(
                   "Enter the email associated with your account",
@@ -87,15 +87,15 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                 onChanged: (_) => _validateEmail(),
                 decoration: InputDecoration(
                   filled: true,
-                  fillColor: Color(0xffEEEEEE),
+                  fillColor: const Color(0xffEEEEEE),
                   labelText: "Email",
                   labelStyle: TextStyle(
                     color: isEmailValid ? Colors.black : Colors.red,
                   ),
                   errorText:
                       isEmailValid ? null : "Must be at least 8 characters",
-                  border: OutlineInputBorder(),
-                  prefixIcon: Icon(Icons.email, color: Color(0xFF6F3797)),
+                  border: const OutlineInputBorder(),
+                  prefixIcon: const Icon(Icons.email, color: Color(0xFF6F3797)),
                 ),
                 style:
                     TextStyle(color: isEmailValid ? Colors.black : Colors.red),
@@ -103,11 +103,11 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
               SizedBox(height: 20.h),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xFF6F3797),
+                  backgroundColor: const Color(0xFF6F3797),
                   minimumSize: Size(290.w, 64.h),
                 ),
                 onPressed: _resetPassword,
-                child: Text("Reset Password",
+                child: const Text("Reset Password",
                     style: TextStyle(color: Colors.white)),
               ),
             ],
