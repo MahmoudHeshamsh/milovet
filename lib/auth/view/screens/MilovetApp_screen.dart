@@ -11,7 +11,6 @@ class ChatListScreen extends StatefulWidget {
 class _ChatListScreenState extends State<ChatListScreen> {
   TextEditingController searchController = TextEditingController();
 
-  // قائمة المستخدمين مع الصور
   List<Map<String, String>> users = [
     {"name": "DR: Mostafa Mohamed", "image": "assets/images/image.png"},
     {"name": "DR: Ahmed Ali", "image": "assets/images/9.jpeg"},
