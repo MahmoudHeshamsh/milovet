@@ -38,7 +38,7 @@ class _SignUpConfirmationScreenState extends State<SignUpConfirmationScreen> {
                     TextSpan(
                       text: "Milovet",
                       style: TextStyle(
-                        color: Colors.purple,
+                        color: Color(0xFF6F3797),
                         fontSize: 16.sp,
                         fontWeight: FontWeight.bold,
                         decoration: TextDecoration.underline,

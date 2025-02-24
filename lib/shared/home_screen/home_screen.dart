@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:milovet/chat_tab/view/widgets/MilovetApp_chatList.dart';
 import 'package:milovet/chat_tab/view/widgets/chat_tab.dart';
 import 'package:milovet/home_tab/view/widgets/home_tab_owner.dart';
 import 'package:milovet/home_tab/view/widgets/home_tab_veterinarian.dart';
@@ -14,7 +15,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  
   void _selectedScreen(int index) {
     _selectedScreenIndex = index;
     setState(() {});
@@ -29,13 +29,13 @@ class _HomeScreenState extends State<HomeScreen> {
     List<Widget> _screens = isPetOwner
         ? [
             HomeTabOwner(),
-            ChatTab(),
+            ChatList(),
             NotificationsTab(),
             ProfileTabOwner(),
           ]
         : [
             HomeTabVeterinarian(),
-            ChatTab(),
+            ChatList(),
             NotificationsTab(),
             ProfileTabVeterinarian(),
           ];
@@ -54,7 +54,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       shape: BoxShape.circle,
                       color: ColorManager.white,
                       image: DecorationImage(
-                          image: isPetOwner? AssetImage('assets/images/user_image.png') : AssetImage('assets/images/doctor_image.png'),)),
+                        image: isPetOwner
+                            ? AssetImage('assets/images/user_image.png')
+                            : AssetImage('assets/images/doctor_image.png'),
+                      )),
                   margin: EdgeInsets.only(bottom: 2.0.h, left: 35.0.w),
                   width: 48.5.w,
                   height: 48.5.h,
@@ -149,7 +152,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
             ),
-      floatingActionButton:isPetOwner
+      floatingActionButton: isPetOwner
           ? FloatingActionButton(
               shape: const CircleBorder(),
               backgroundColor: Colors.transparent,

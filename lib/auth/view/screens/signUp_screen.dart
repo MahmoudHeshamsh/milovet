@@ -73,11 +73,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   style: TextStyle(
                       fontSize: 24.sp,
                       fontWeight: FontWeight.bold,
-                      color: Colors.purple),
+                      color: Color(0xFF6F3797)),
                 ),
                 SizedBox(height: 20.h),
-
-                // Email Field
                 TextField(
                   controller: emailController,
                   decoration: InputDecoration(
@@ -89,14 +87,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     errorText:
                         isEmailValid ? null : "Must be at least 8 characters",
                     border: OutlineInputBorder(),
-                    prefixIcon: Icon(Icons.email, color: Colors.purple),
+                    prefixIcon: Icon(Icons.email, color: Color(0xFF6F3797)),
                   ),
                   style: TextStyle(
                       color: isEmailValid ? Colors.black : Colors.red),
                 ),
                 SizedBox(height: 20.h),
-
-                // Password Field
                 TextField(
                   controller: passwordController,
                   obscureText: true,
@@ -110,14 +106,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ? null
                         : "Must be at least 8 characters",
                     border: OutlineInputBorder(),
-                    prefixIcon: Icon(Icons.lock, color: Colors.purple),
+                    prefixIcon: Icon(Icons.lock, color: Color(0xFF6F3797)),
                   ),
                   style: TextStyle(
                       color: isPasswordValid ? Colors.black : Colors.red),
                 ),
                 SizedBox(height: 20.h),
-
-                // Confirm Password Field
                 TextField(
                   controller: confirmPasswordController,
                   obscureText: true,
@@ -132,48 +126,43 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ? null
                         : "Passwords do not match",
                     border: OutlineInputBorder(),
-                    prefixIcon: Icon(Icons.lock, color: Colors.purple),
+                    prefixIcon: Icon(Icons.lock, color: Color(0xFF6F3797)),
                   ),
                   style: TextStyle(
                       color:
                           isConfirmPasswordValid ? Colors.black : Colors.red),
                 ),
                 SizedBox(height: 20.h),
-
-                // Sign Up Button
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.purple,
+                    backgroundColor: Color(0xFF6F3797),
                     minimumSize: Size(290.w, 64.h),
                   ),
                   onPressed: validateAndSignUp,
                   child: Text("Sign Up", style: TextStyle(color: Colors.white)),
                 ),
-
                 SizedBox(height: 10.h),
-
-                // Signup Option
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text("have you an account?"),
+                    Text(
+                      "have you an account?",
+                      style: TextStyle(color: Color(0xFF221F1F)),
+                    ),
                     TextButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, '/signup');
+                        Navigator.pushNamed(context, '/login');
                       },
                       child: Text(
                         "Sign in",
-                        style: TextStyle(color: Colors.purple),
+                        style: TextStyle(color: Color(0xFF6F3797)),
                       ),
                     ),
                   ],
                 ),
-
                 SizedBox(height: 20.h),
                 Text('_______ Or continue with _______'),
                 SizedBox(height: 20.h),
-
-                // Social Login
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -196,7 +185,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
-        color: Colors.purple.withOpacity(0.1),
+        color: Color(0xFF6F3797).withOpacity(0.1),
       ),
       child: Material(
         color: Colors.transparent,
@@ -206,7 +195,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
           onTap: () {},
           child: Padding(
             padding: EdgeInsets.all(8),
-            child: Icon(icon, size: 40.sp, color: Colors.purple),
+            child: Icon(icon, size: 40.sp, color: Color(0xFF6F3797)),
           ),
         ),
       ),

@@ -70,7 +70,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                 style: TextStyle(
                     fontSize: 27.sp,
                     fontWeight: FontWeight.bold,
-                    color: Colors.purple),
+                    color: Color(0xFF6F3797)),
               ),
               SizedBox(height: 10.h),
               Align(
@@ -95,7 +95,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
                   errorText:
                       isEmailValid ? null : "Must be at least 8 characters",
                   border: OutlineInputBorder(),
-                  prefixIcon: Icon(Icons.email, color: Colors.purple),
+                  prefixIcon: Icon(Icons.email, color: Color(0xFF6F3797)),
                 ),
                 style:
                     TextStyle(color: isEmailValid ? Colors.black : Colors.red),
@@ -103,7 +103,7 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
               SizedBox(height: 20.h),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.purple,
+                  backgroundColor: Color(0xFF6F3797),
                   minimumSize: Size(290.w, 64.h),
                 ),
                 onPressed: _resetPassword,

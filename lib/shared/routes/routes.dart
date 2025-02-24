@@ -13,6 +13,6 @@ class Routes {
   static const String editProfile = '/edit_profile';
   static const String resetPasswordConfirmation =
       '/reset_password_confirmation';
-  static const String chatPage = '/chatPage';
+  static const String chatTab = '/chatTab';
   static const String chatList = '/chatList';
 }
