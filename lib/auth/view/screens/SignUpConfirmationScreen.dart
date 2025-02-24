@@ -21,7 +21,8 @@ class _SignUpConfirmationScreenState extends State<SignUpConfirmationScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Icon(Icons.check_circle, size: 100.sp, color: Colors.purple),
+              Image.asset("assets/images/Frame 1261154868.png",
+                  width: 264.w, height: 245.14.h),
               SizedBox(height: 20.h),
               Text(
                 "Congratulations",

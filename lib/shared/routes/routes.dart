@@ -12,4 +12,5 @@ class Routes {
   static const String resetPassword = '/reset_password';
   static const String resetPasswordConfirmation =
       '/reset_password_confirmation';
+  static const String chatPage = '/chatPage';
 }
