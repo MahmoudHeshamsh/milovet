@@ -64,10 +64,14 @@ class ProfileTabVeterinarian extends StatelessWidget {
                           SizedBox(
                             width: 5.w,
                           ),
-                          Image.asset(
-                            'assets/images/edit_profile.png',
+                          SizedBox(
                             height: 24.h,
                             width: 24.w,
+                            child: Image.asset(
+                              'assets/images/edit_profile.png',
+                              height: 24.h,
+                              width: 24.w,
+                            ),
                           ),
                           SizedBox(
                             width: 10.0.w,
