@@ -50,7 +50,7 @@ class DoctorOrUser extends StatelessWidget {
                   onPressed: () {
                     isPetOwner = false;
                     Navigator.of(context).pushReplacementNamed(
-                        Routes.homeScreen,
+                        Routes.login,
                         arguments: isPetOwner);
                   },
                   child: Text("Veterinarian",
@@ -72,7 +72,7 @@ class DoctorOrUser extends StatelessWidget {
                   ),
                   onPressed: () {
                     Navigator.of(context).pushReplacementNamed(
-                        Routes.homeScreen,
+                        Routes.login,
                         arguments: isPetOwner);
                   },
                   child: Text(

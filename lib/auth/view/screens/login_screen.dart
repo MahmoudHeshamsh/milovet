@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:milovet/shared/color_manager.dart';
+import 'package:milovet/shared/routes/routes.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -40,20 +42,23 @@ class _LoginScreenState extends State<LoginScreen> {
         backgroundColor: Colors.green,
       ),
     );
-
+    final args = ModalRoute.of(context)?.settings.arguments as bool?;
+    bool isPetOwner = args ?? true;
     Future.delayed(Duration(seconds: 2), () {
-      Navigator.pushNamed(context, '/signup_confirmation');
+      Navigator.of(context).pushReplacementNamed(Routes.homeScreen,arguments: isPetOwner);
     });
   }
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
+        backgroundColor: Colors.transparent,
         title: Text(
-          "Login",
-          style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold),
+          "Login", 
+          style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold,color: ColorManager.black),
         ),
       ),
       body: GestureDetector(

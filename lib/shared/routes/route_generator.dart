@@ -26,9 +26,9 @@ class RouteGenerator {
       case Routes.getStarted:
         return MaterialPageRoute(builder: (_) => const GetStarted());
       case Routes.login:
-        return MaterialPageRoute(builder: (_) => const LoginScreen());
+        return MaterialPageRoute(builder: (_) => const LoginScreen(),settings: settings);
       case Routes.signUp:
-        return MaterialPageRoute(builder: (_) => const SignUpScreen());
+        return MaterialPageRoute(builder: (_) => const SignUpScreen(),settings: settings);
       case Routes.doctorOrUSer:
         return MaterialPageRoute(
             builder: (_) => DoctorOrUser(), settings: settings);

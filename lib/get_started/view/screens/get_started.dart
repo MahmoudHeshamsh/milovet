@@ -43,7 +43,7 @@ class GetStarted extends StatelessWidget {
                     minimumSize: Size(290.w, 64.h),
                   ),
                   onPressed: () {
-                    Navigator.of(context).pushReplacementNamed(Routes.login);
+                    Navigator.of(context).pushReplacementNamed(Routes.doctorOrUSer);
                   },
                   child: Text(
                     'Get started',
