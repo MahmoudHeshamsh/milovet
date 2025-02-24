@@ -21,11 +21,8 @@ class _ResetPasswordConfirmationScreenState
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Icon(
-                Icons.check_circle,
-                size: 100.sp,
-                color: Colors.purple,
-              ),
+              Image.asset('assets/images/Frame 1261154868.png',
+                  width: 264.w, height: 245.14.h),
               SizedBox(height: 20.h),
               Text(
                 "Your Password has been Successfully Reset.",
@@ -45,7 +42,7 @@ class _ResetPasswordConfirmationScreenState
                   minimumSize: Size(290.w, 64.h),
                 ),
                 onPressed: () {
-                  Navigator.pushNamed(context, '/reset_password_confirmation');
+                  Navigator.pushNamed(context, '/chatPage');
                 },
                 child: Text("Let's go", style: TextStyle(color: Colors.white)),
               ),
