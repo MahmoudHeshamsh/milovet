@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:milovet/shared/color_manager.dart';
-import 'package:milovet/shared/home_screen/home_screen.dart';
 import 'package:milovet/shared/routes/routes.dart';
 
 class DoctorOrUser extends StatelessWidget {
@@ -53,7 +52,7 @@ class DoctorOrUser extends StatelessWidget {
                         Routes.login,
                         arguments: isPetOwner);
                   },
-                  child: Text("Veterinarian",
+                  child: const Text("Veterinarian",
                       style: TextStyle(color: Colors.white)),
                 ),
               ),
@@ -62,7 +61,7 @@ class DoctorOrUser extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 17.0.w),
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xffEEEEEE),
+                    backgroundColor: const Color(0xffEEEEEE),
                     minimumSize: Size(290.w, 64.h),
                     side: BorderSide(
                         color: ColorManager.primaryColor, width: 1.w),
@@ -75,7 +74,7 @@ class DoctorOrUser extends StatelessWidget {
                         Routes.login,
                         arguments: isPetOwner);
                   },
-                  child: Text(
+                  child: const Text(
                     "Pet Owner",
                     style: TextStyle(color: ColorManager.primaryColor),
                   ),
@@ -86,6 +85,5 @@ class DoctorOrUser extends StatelessWidget {
         ),
       ),
     );
-    ;
   }
 }

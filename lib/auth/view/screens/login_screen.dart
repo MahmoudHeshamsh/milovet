@@ -28,7 +28,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
     if (!isEmailValid || !isPasswordValid) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
+        const SnackBar(
           content: Text("Email and password must be at least 8 characters!"),
           backgroundColor: Colors.red,
         ),
@@ -37,28 +37,33 @@ class _LoginScreenState extends State<LoginScreen> {
     }
 
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
+      const SnackBar(
         content: Text("Login Successful!"),
         backgroundColor: Colors.green,
       ),
     );
     final args = ModalRoute.of(context)?.settings.arguments as bool?;
     bool isPetOwner = args ?? true;
-    Future.delayed(Duration(seconds: 2), () {
-      Navigator.of(context).pushReplacementNamed(Routes.homeScreen,arguments: isPetOwner);
+    Future.delayed(const Duration(seconds: 2), () {
+      Navigator.of(context)
+          .pushReplacementNamed(Routes.homeScreen, arguments: isPetOwner);
     });
   }
 
   @override
   Widget build(BuildContext context) {
-
+    final args = ModalRoute.of(context)?.settings.arguments as bool?;
+    bool isPetOwner = args ?? true;
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.transparent,
         title: Text(
-          "Login", 
-          style: TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold,color: ColorManager.black),
+          "Login",
+          style: TextStyle(
+              fontSize: 24.sp,
+              fontWeight: FontWeight.bold,
+              color: ColorManager.black),
         ),
       ),
       body: GestureDetector(
@@ -75,7 +80,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     style: TextStyle(
                         fontSize: 24.sp,
                         fontWeight: FontWeight.bold,
-                        color: Color(0xFF6F3797)),
+                        color: const Color(0xFF6F3797)),
                   ),
                   SizedBox(height: 40.h),
                   TextField(
@@ -83,15 +88,15 @@ class _LoginScreenState extends State<LoginScreen> {
                     keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(
                       filled: true,
-                      fillColor: Color(0xffEEEEEE),
+                      fillColor: const Color(0xffEEEEEE),
                       labelText: "Email",
                       labelStyle: TextStyle(
                         color: isEmailValid ? Colors.black : Colors.red,
                       ),
                       errorText:
                           isEmailValid ? null : "Must be at least 8 characters",
-                      border: OutlineInputBorder(),
-                      prefixIcon: Icon(Icons.email, color: Color(0xFF6F3797)),
+                      border: const OutlineInputBorder(),
+                      prefixIcon: const Icon(Icons.email, color: Color(0xFF6F3797)),
                     ),
                   ),
                   SizedBox(height: 20.h),
@@ -100,7 +105,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     obscureText: true,
                     decoration: InputDecoration(
                       filled: true,
-                      fillColor: Color(0xffEEEEEE),
+                      fillColor: const Color(0xffEEEEEE),
                       labelText: "Password",
                       labelStyle: TextStyle(
                         color: isPasswordValid ? Colors.black : Colors.red,
@@ -108,8 +113,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       errorText: isPasswordValid
                           ? null
                           : "Must be at least 8 characters",
-                      border: OutlineInputBorder(),
-                      prefixIcon: Icon(Icons.lock, color: Color(0xFF6F3797)),
+                      border: const OutlineInputBorder(),
+                      prefixIcon: const Icon(Icons.lock, color: Color(0xFF6F3797)),
                     ),
                   ),
                   SizedBox(height: 10.h),
@@ -119,7 +124,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       onTap: () {
                         Navigator.pushNamed(context, '/forgot_password');
                       },
-                      child: Text(
+                      child: const Text(
                         "Forgot your password?",
                         style: TextStyle(color: Color(0xFF6F3797)),
                       ),
@@ -128,25 +133,26 @@ class _LoginScreenState extends State<LoginScreen> {
                   SizedBox(height: 20.h),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0xFF6F3797),
+                      backgroundColor: const Color(0xFF6F3797),
                       minimumSize: Size(290.w, 64.h),
                     ),
                     onPressed: _handleLogin,
-                    child: Text("Login", style: TextStyle(color: Colors.white)),
+                    child: const Text("Login", style: TextStyle(color: Colors.white)),
                   ),
                   SizedBox(height: 10.h),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
+                      const Text(
                         "Don’t have an account?",
                         style: TextStyle(color: Color(0xFF221F1F)),
                       ),
                       TextButton(
                         onPressed: () {
-                          Navigator.pushNamed(context, '/signup');
+                          Navigator.of(context).pushNamed(Routes.signUp,
+                              arguments: isPetOwner);
                         },
-                        child: Text(
+                        child: const Text(
                           "Create new account",
                           style: TextStyle(color: Color(0xFF6F3797)),
                         ),
@@ -154,15 +160,15 @@ class _LoginScreenState extends State<LoginScreen> {
                     ],
                   ),
                   SizedBox(height: 20.h),
-                  Text('_______ Or continue with _______'),
+                  const Text('_______ Or continue with _______'),
                   SizedBox(height: 20.h),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       _socialButton(Icons.g_mobiledata),
-                      SizedBox(width: 5),
+                      const SizedBox(width: 5),
                       _socialButton(Icons.facebook),
-                      SizedBox(width: 5),
+                      const SizedBox(width: 5),
                       _socialButton(Icons.apple),
                     ],
                   )
@@ -179,7 +185,7 @@ class _LoginScreenState extends State<LoginScreen> {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
-        color: Color(0xFF6F3797).withOpacity(0.1),
+        color: const Color(0xFF6F3797).withOpacity(0.1),
       ),
       child: Material(
         color: Colors.transparent,
@@ -188,8 +194,8 @@ class _LoginScreenState extends State<LoginScreen> {
           borderRadius: BorderRadius.circular(12),
           onTap: () {},
           child: Padding(
-            padding: EdgeInsets.all(8),
-            child: Icon(icon, size: 40.sp, color: Color(0xFF6F3797)),
+            padding: const EdgeInsets.all(8),
+            child: Icon(icon, size: 40.sp, color: const Color(0xFF6F3797)),
           ),
         ),
       ),

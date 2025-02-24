@@ -4,8 +4,8 @@ import 'package:milovet/disease/data/models/disease_model.dart';
 import 'package:milovet/shared/color_manager.dart';
 
 class DiseaseItem extends StatelessWidget {
-  DiseaseItem(this._diseaseModel, {super.key});
-  DiseaseModel _diseaseModel;
+  const DiseaseItem(this._diseaseModel, {super.key});
+  final DiseaseModel _diseaseModel;
   @override
   Widget build(BuildContext context) {
     return Container(

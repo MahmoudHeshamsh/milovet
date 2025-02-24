@@ -11,6 +11,7 @@ class Routes {
   static const String emailVerification = '/email_verification';
   static const String resetPassword = '/reset_password';
   static const String editProfile = '/edit_profile';
+  static const String congratulation = '/congratulation';
   static const String resetPasswordConfirmation =
       '/reset_password_confirmation';
   static const String chatTab = '/chatTab';

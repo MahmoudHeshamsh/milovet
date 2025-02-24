@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:milovet/shared/color_manager.dart';
 
 class EmailVerificationScreen extends StatefulWidget {
   const EmailVerificationScreen({super.key});
@@ -35,7 +34,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                 style: TextStyle(
                     fontSize: 27.sp,
                     fontWeight: FontWeight.bold,
-                    color: Color(0xFF6F3797)),
+                    color: const Color(0xFF6F3797)),
               ),
               SizedBox(height: 10.h),
               Text(
@@ -60,7 +59,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
-                            borderSide: BorderSide(color: Color(0xFF6F3797)),
+                            borderSide: const BorderSide(color: Color(0xFF6F3797)),
                           ),
                         ),
                       ),
@@ -86,25 +85,25 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
               SizedBox(height: 20.h),
               Text(
                 "Code expires in 30:00",
-                style: TextStyle(fontSize: 16.sp, color: Color(0xff5B5353)),
+                style: TextStyle(fontSize: 16.sp, color: const Color(0xff5B5353)),
               ),
               SizedBox(height: 20.h),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xFF6F3797),
+                  backgroundColor: const Color(0xFF6F3797),
                   minimumSize: Size(290.w, 64.h),
                 ),
                 onPressed: () {
                   Navigator.pushNamed(context, '/reset_password');
                 },
-                child: Text("Verify", style: TextStyle(color: Colors.white)),
+                child: const Text("Verify", style: TextStyle(color: Colors.white)),
               ),
               SizedBox(height: 10.h),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xffEEEEEE),
+                  backgroundColor: const Color(0xffEEEEEE),
                   minimumSize: Size(290.w, 64.h),
-                  side: BorderSide(color: Color(0xFF6F3797), width: 1.w),
+                  side: BorderSide(color: const Color(0xFF6F3797), width: 1.w),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(50),
                   ),
@@ -112,7 +111,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                 onPressed: () {
                   Navigator.pushNamed(context, '/email_verification');
                 },
-                child: Text(
+                child: const Text(
                   "Send again",
                   style: TextStyle(color: Color(0xFF6F3797)),
                 ),

@@ -46,7 +46,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
       _successMessage = "Password reset successfully!";
     });
 
-    Future.delayed(Duration(seconds: 1), () {
+    Future.delayed(const Duration(seconds: 1), () {
       Navigator.pushNamed(context, '/reset_password_confirmation');
     });
   }
@@ -73,7 +73,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                   style: TextStyle(
                       fontSize: 27.sp,
                       fontWeight: FontWeight.bold,
-                      color: Color(0xFF6F3797)),
+                      color: const Color(0xFF6F3797)),
                 ),
               ),
               SizedBox(height: 20.h),
@@ -85,7 +85,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                 }),
                 decoration: InputDecoration(
                   filled: true,
-                  fillColor: Color(0xffEEEEEE),
+                  fillColor: const Color(0xffEEEEEE),
                   labelText: "New Password",
                   labelStyle: TextStyle(
                       color: isPasswordValid ? Colors.black : Colors.red),
@@ -99,7 +99,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                       color: isPasswordValid ? Colors.green : Colors.red,
                     ),
                   ),
-                  prefixIcon: Icon(Icons.key, color: Color(0xFF6F3797)),
+                  prefixIcon: const Icon(Icons.key, color: Color(0xFF6F3797)),
                 ),
                 style: TextStyle(
                     color: isPasswordValid ? Colors.black : Colors.red),
@@ -114,7 +114,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                 }),
                 decoration: InputDecoration(
                   filled: true,
-                  fillColor: Color(0xffEEEEEE),
+                  fillColor: const Color(0xffEEEEEE),
                   labelText: "Confirm New Password",
                   labelStyle: TextStyle(
                       color:
@@ -129,7 +129,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                       color: isConfirmPasswordValid ? Colors.green : Colors.red,
                     ),
                   ),
-                  prefixIcon: Icon(Icons.key, color: Color(0xFF6F3797)),
+                  prefixIcon: const Icon(Icons.key, color: Color(0xFF6F3797)),
                 ),
                 style: TextStyle(
                     color: isConfirmPasswordValid ? Colors.black : Colors.red),
@@ -137,9 +137,9 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
               SizedBox(height: 20.h),
               Row(
                 children: [
-                  Icon(Icons.warning_amber_outlined, color: Color(0xFF6F3797)),
+                  const Icon(Icons.warning_amber_outlined, color: Color(0xFF6F3797)),
                   SizedBox(width: 8.w),
-                  Text('Must be at least 8 characters'),
+                  const Text('Must be at least 8 characters'),
                 ],
               ),
               SizedBox(height: 20.h),
@@ -166,12 +166,12 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
               Center(
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color(0xFF6F3797),
+                    backgroundColor: const Color(0xFF6F3797),
                     minimumSize: Size(290.w, 64.h),
                   ),
                   onPressed: _validateAndSubmit,
                   child:
-                      Text("Continue", style: TextStyle(color: Colors.white)),
+                      const Text("Continue", style: TextStyle(color: Colors.white)),
                 ),
               ),
             ],

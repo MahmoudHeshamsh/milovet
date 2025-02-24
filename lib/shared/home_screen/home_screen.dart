@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:milovet/chat_tab/view/widgets/MilovetApp_chatList.dart';
-import 'package:milovet/chat_tab/view/widgets/chat_tab.dart';
 import 'package:milovet/home_tab/view/widgets/home_tab_owner.dart';
 import 'package:milovet/home_tab/view/widgets/home_tab_veterinarian.dart';
 import 'package:milovet/notificarions_tab/view/widgets/notifications_tab.dart';
@@ -10,6 +9,8 @@ import 'package:milovet/profile_tab/view/widgets/profile_tab_veterinarian.dart';
 import 'package:milovet/shared/color_manager.dart';
 
 class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
@@ -26,18 +27,18 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final args = ModalRoute.of(context)?.settings.arguments as bool?;
     bool isPetOwner = args ?? true;
-    List<Widget> _screens = isPetOwner
+    List<Widget> screens = isPetOwner
         ? [
             HomeTabOwner(),
-            ChatList(),
-            NotificationsTab(),
-            ProfileTabOwner(),
+            const ChatList(),
+            const NotificationsTab(),
+            const ProfileTabOwner(),
           ]
         : [
             HomeTabVeterinarian(),
-            ChatList(),
-            NotificationsTab(),
-            ProfileTabVeterinarian(),
+            const ChatList(),
+            const NotificationsTab(),
+            const ProfileTabVeterinarian(),
           ];
     return Scaffold(
       backgroundColor: ColorManager.white,
@@ -55,8 +56,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       color: ColorManager.white,
                       image: DecorationImage(
                         image: isPetOwner
-                            ? AssetImage('assets/images/user_image.png')
-                            : AssetImage('assets/images/doctor_image.png'),
+                            ? const AssetImage('assets/images/user_image.png')
+                            : const AssetImage(
+                                'assets/images/doctor_image.png'),
                       )),
                   margin: EdgeInsets.only(bottom: 2.0.h, left: 35.0.w),
                   width: 48.5.w,
@@ -95,7 +97,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-      body: _screens[_selectedScreenIndex],
+      body: screens[_selectedScreenIndex],
       bottomNavigationBar: isPetOwner
           ? ClipRRect(
               borderRadius: BorderRadius.only(
@@ -114,7 +116,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   selectedFontSize: 10.5.sp,
                   unselectedFontSize: 10.5.sp,
                   type: BottomNavigationBarType.fixed,
-                  items: [
+                  items: const [
                     BottomNavigationBarItem(
                         icon: Icon(Icons.home), label: 'Home'),
                     BottomNavigationBarItem(
@@ -133,23 +135,31 @@ class _HomeScreenState extends State<HomeScreen> {
                 topLeft: Radius.circular(20.0.sp),
                 topRight: Radius.circular(20.0.sp),
               ),
-              child: BottomNavigationBar(
-                onTap: _selectedScreen,
-                selectedFontSize: 10.5.sp,
-                unselectedFontSize: 10.5.sp,
-                currentIndex: _selectedScreenIndex,
-                type: BottomNavigationBarType.fixed,
-                items: [
-                  BottomNavigationBarItem(
-                      icon: Icon(Icons.home), label: 'Home'),
-                  BottomNavigationBarItem(
-                      icon: Icon(Icons.forum), label: 'Chat'),
-                  BottomNavigationBarItem(
-                      icon: Icon(Icons.notifications_on_rounded),
-                      label: 'Notifications'),
-                  BottomNavigationBarItem(
-                      icon: Icon(Icons.person), label: 'Profile')
-                ],
+              child: BottomAppBar(
+                color: ColorManager.primaryColor,
+                shape: const CircularNotchedRectangle(),
+                notchMargin: 10,
+                clipBehavior: Clip.antiAliasWithSaveLayer,
+                padding: EdgeInsets.zero,
+                child: BottomNavigationBar(
+                  elevation: 0,
+                  onTap: _selectedScreen,
+                  selectedFontSize: 10.5.sp,
+                  unselectedFontSize: 10.5.sp,
+                  currentIndex: _selectedScreenIndex,
+                  type: BottomNavigationBarType.fixed,
+                  items: const [
+                    BottomNavigationBarItem(
+                        icon: Icon(Icons.home), label: 'Home'),
+                    BottomNavigationBarItem(
+                        icon: Icon(Icons.forum), label: 'Chat'),
+                    BottomNavigationBarItem(
+                        icon: Icon(Icons.notifications_on_rounded),
+                        label: 'Notifications'),
+                    BottomNavigationBarItem(
+                        icon: Icon(Icons.person), label: 'Profile')
+                  ],
+                ),
               ),
             ),
       floatingActionButton: isPetOwner
@@ -157,16 +167,30 @@ class _HomeScreenState extends State<HomeScreen> {
               shape: const CircleBorder(),
               backgroundColor: Colors.transparent,
               onPressed: () {},
-              child: Container(
+              child: SizedBox(
                   height: 47.h,
                   width: 47.w,
                   child: Image.asset(
                     'assets/images/ai_model.png',
                     fit: BoxFit.cover,
                   )))
-          : null,
-      floatingActionButtonLocation:
-          isPetOwner ? FloatingActionButtonLocation.centerDocked : null,
+          : FloatingActionButton(
+              shape: const CircleBorder(),
+              backgroundColor: Colors.transparent,
+              onPressed: () {},
+              child: Container(
+                decoration: const BoxDecoration(
+                  color: ColorManager.white,
+                  shape: BoxShape.circle,
+                ),
+                  height: 47.h,
+                  width: 47.w,
+                  child: Icon(
+                    Icons.add,
+                    size: 47.sp,
+                    color: ColorManager.gray,
+                  ))),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
     );
   }
 }

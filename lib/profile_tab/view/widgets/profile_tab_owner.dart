@@ -18,8 +18,8 @@ class ProfileTabOwner extends StatelessWidget {
           decoration: BoxDecoration(
               border: Border.all(color: ColorManager.primaryColor),
               shape: BoxShape.circle,
-              image: DecorationImage(
-                fit: BoxFit.contain,
+              image: const DecorationImage(
+                  fit: BoxFit.contain,
                   image: AssetImage('assets/images/user_profile.png'))),
           height: 120.h,
           width: 120.w,
@@ -27,7 +27,7 @@ class ProfileTabOwner extends StatelessWidget {
         SizedBox(
           height: 20.h,
         ),
-        Container(
+        SizedBox(
           child: Column(
             children: [
               Text(
@@ -61,7 +61,9 @@ class ProfileTabOwner extends StatelessWidget {
                       },
                       child: Row(
                         children: [
-                          SizedBox(width: 5.w,),
+                          SizedBox(
+                            width: 5.w,
+                          ),
                           Image.asset(
                             'assets/images/edit_profile.png',
                             height: 24.h,
@@ -94,7 +96,9 @@ class ProfileTabOwner extends StatelessWidget {
                     width: 330.w,
                     child: Row(
                       children: [
-                        SizedBox(width: 5.w,),
+                        SizedBox(
+                          width: 5.w,
+                        ),
                         Image.asset(
                           'assets/images/help_support.png',
                           height: 24.h,
@@ -126,7 +130,9 @@ class ProfileTabOwner extends StatelessWidget {
                     width: 330.w,
                     child: Row(
                       children: [
-                        SizedBox(width: 5.w,),
+                        SizedBox(
+                          width: 5.w,
+                        ),
                         Image.asset(
                           'assets/images/notifications_icon.png',
                           height: 24.h,
@@ -158,9 +164,11 @@ class ProfileTabOwner extends StatelessWidget {
                     width: 330.w,
                     child: Row(
                       children: [
-                        SizedBox(width: 5.w,),
+                        SizedBox(
+                          width: 5.w,
+                        ),
                         Image.asset(
-                          'assets/images/settings_icon.png', 
+                          'assets/images/settings_icon.png',
                           height: 24.h,
                           width: 24.w,
                         ),
@@ -187,10 +195,12 @@ class ProfileTabOwner extends StatelessWidget {
                         ),
                         borderRadius: BorderRadius.circular(5.sp)),
                     height: 45.h,
-                    width: 330.w, 
+                    width: 330.w,
                     child: Row(
                       children: [
-                        SizedBox(width: 5.w,),
+                        SizedBox(
+                          width: 5.w,
+                        ),
                         Image.asset(
                           'assets/images/logout.png',
                           height: 24.h,
@@ -199,12 +209,18 @@ class ProfileTabOwner extends StatelessWidget {
                         SizedBox(
                           width: 10.0.w,
                         ),
-                        Text(
-                          'Log out',
-                          style: Theme.of(context)
-                              .textTheme
-                              .titleSmall!
-                              .copyWith(fontSize: 14.sp),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.of(context)
+                                .pushReplacementNamed(Routes.login);
+                          },
+                          child: Text(
+                            'Log out',
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleSmall!
+                                .copyWith(fontSize: 14.sp),
+                          ),
                         ),
                       ],
                     ),

@@ -44,7 +44,7 @@ class AppTheme {
         iconColor: ColorManager.white,
         backgroundColor: ColorManager.primaryColor,
       )),
-      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
         selectedItemColor: ColorManager.primaryColor,
         unselectedItemColor: ColorManager.gray,
         showSelectedLabels: true,

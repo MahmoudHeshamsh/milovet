@@ -35,12 +35,12 @@ class ChatTab extends StatelessWidget {
         backgroundColor: Colors.white,
         elevation: 0.5,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Color(0xFF6F3797)),
+          icon: const Icon(Icons.arrow_back, color: Color(0xFF6F3797)),
           onPressed: () {},
         ),
         title: Row(
           children: [
-            CircleAvatar(
+            const CircleAvatar(
               backgroundImage: AssetImage("assets/images/image.png"),
             ),
             SizedBox(width: 10.w),
@@ -55,7 +55,7 @@ class ChatTab extends StatelessWidget {
                 Row(
                   children: [
                     Icon(Icons.circle, size: 10.sp, color: Colors.green),
-                    SizedBox(width: 5),
+                    const SizedBox(width: 5),
                     Text("Active",
                         style:
                             TextStyle(fontSize: 12.sp, color: Colors.black54)),
@@ -70,7 +70,7 @@ class ChatTab extends StatelessWidget {
         children: [
           Expanded(
             child: ListView.builder(
-              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
               itemCount: messages.length,
               itemBuilder: (context, index) {
                 final message = messages[index];
@@ -80,7 +80,7 @@ class ChatTab extends StatelessWidget {
                       : MainAxisAlignment.start,
                   children: [
                     if (!message["isMe"])
-                      CircleAvatar(
+                      const CircleAvatar(
                           backgroundImage:
                               AssetImage("assets/images/image.png")),
                     SizedBox(
@@ -88,13 +88,13 @@ class ChatTab extends StatelessWidget {
                       height: 10.h,
                     ),
                     Container(
-                      margin: EdgeInsets.symmetric(vertical: 5),
-                      padding: EdgeInsets.all(12),
+                      margin: const EdgeInsets.symmetric(vertical: 5),
+                      padding: const EdgeInsets.all(12),
                       constraints: BoxConstraints(
                           maxWidth: MediaQuery.of(context).size.width * 0.7),
                       decoration: BoxDecoration(
                         color: message["isMe"]
-                            ? Color(0xFF6F3797)
+                            ? const Color(0xFF6F3797)
                             : Colors.grey[300],
                         borderRadius: BorderRadius.circular(15),
                       ),
@@ -125,13 +125,13 @@ class ChatTab extends StatelessWidget {
                         borderSide: BorderSide.none,
                       ),
                       contentPadding:
-                          EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+                          const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
                       suffixIcon: Padding(
-                        padding: EdgeInsets.all(5),
+                        padding: const EdgeInsets.all(5),
                         child: CircleAvatar(
-                          backgroundColor: Color(0xFF6F3797),
+                          backgroundColor: const Color(0xFF6F3797),
                           child: IconButton(
-                            icon: Icon(Icons.add, color: Colors.white),
+                            icon: const Icon(Icons.add, color: Colors.white),
                             onPressed: () {},
                           ),
                         ),
@@ -141,7 +141,7 @@ class ChatTab extends StatelessWidget {
                 ),
                 SizedBox(width: 10.w),
                 CircleAvatar(
-                  backgroundColor: Color(0xFF6F3797),
+                  backgroundColor: const Color(0xFF6F3797),
                   child: IconButton(
                     icon: Image.asset('assets/images/Send 2.png',
                         width: 24.w, height: 24.h),
