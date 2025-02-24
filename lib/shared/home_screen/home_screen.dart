@@ -9,6 +9,8 @@ import 'package:milovet/profile_tab/view/widgets/profile_tab_veterinarian.dart';
 import 'package:milovet/shared/color_manager.dart';
 
 class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
+
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
@@ -26,18 +28,18 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     final args = ModalRoute.of(context)?.settings.arguments as bool?;
     bool isPetOwner = args ?? true;
-    List<Widget> _screens = isPetOwner
+    List<Widget> screens = isPetOwner
         ? [
             HomeTabOwner(),
-            ChatTab(),
-            NotificationsTab(),
-            ProfileTabOwner(),
+            const ChatTab(),
+            const NotificationsTab(),
+            const ProfileTabOwner(),
           ]
         : [
             HomeTabVeterinarian(),
-            ChatTab(),
-            NotificationsTab(),
-            ProfileTabVeterinarian(),
+            const ChatTab(),
+            const NotificationsTab(),
+            const ProfileTabVeterinarian(),
           ];
     return Scaffold(
       backgroundColor: ColorManager.white,
@@ -54,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       shape: BoxShape.circle,
                       color: ColorManager.white,
                       image: DecorationImage(
-                          image: isPetOwner? AssetImage('assets/images/user_image.png') : AssetImage('assets/images/doctor_image.png'),)),
+                          image: isPetOwner? const AssetImage('assets/images/user_image.png') : const AssetImage('assets/images/doctor_image.png'),)),
                   margin: EdgeInsets.only(bottom: 2.0.h, left: 35.0.w),
                   width: 48.5.w,
                   height: 48.5.h,
@@ -92,7 +94,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ],
         ),
       ),
-      body: _screens[_selectedScreenIndex],
+      body: screens[_selectedScreenIndex],
       bottomNavigationBar: isPetOwner
           ? ClipRRect(
               borderRadius: BorderRadius.only(
@@ -111,7 +113,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   selectedFontSize: 10.5.sp,
                   unselectedFontSize: 10.5.sp,
                   type: BottomNavigationBarType.fixed,
-                  items: [
+                  items: const [
                     BottomNavigationBarItem(
                         icon: Icon(Icons.home), label: 'Home'),
                     BottomNavigationBarItem(
@@ -136,7 +138,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 unselectedFontSize: 10.5.sp,
                 currentIndex: _selectedScreenIndex,
                 type: BottomNavigationBarType.fixed,
-                items: [
+                items: const [
                   BottomNavigationBarItem(
                       icon: Icon(Icons.home), label: 'Home'),
                   BottomNavigationBarItem(
@@ -154,7 +156,7 @@ class _HomeScreenState extends State<HomeScreen> {
               shape: const CircleBorder(),
               backgroundColor: Colors.transparent,
               onPressed: () {},
-              child: Container(
+              child: SizedBox(
                   height: 47.h,
                   width: 47.w,
                   child: Image.asset(

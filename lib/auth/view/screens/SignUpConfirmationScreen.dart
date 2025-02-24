@@ -33,7 +33,7 @@ class _SignUpConfirmationScreenState extends State<SignUpConfirmationScreen> {
                 text: TextSpan(
                   style: TextStyle(fontSize: 16.sp, color: Colors.black),
                   children: [
-                    TextSpan(text: "Welcome to "),
+                    const TextSpan(text: "Welcome to "),
                     TextSpan(
                       text: "Milovet",
                       style: TextStyle(
@@ -48,7 +48,7 @@ class _SignUpConfirmationScreenState extends State<SignUpConfirmationScreen> {
                               context, '/reset_password_confirmation');
                         },
                     ),
-                    TextSpan(
+                    const TextSpan(
                         text:
                             ", your trusted partner in keeping your furry friend happy and healthy!"),
                   ],

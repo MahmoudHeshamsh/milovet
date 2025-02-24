@@ -17,7 +17,7 @@ class ProfileTabOwner extends StatelessWidget {
           decoration: BoxDecoration(
               border: Border.all(color: ColorManager.primaryColor),
               shape: BoxShape.circle,
-              image: DecorationImage(
+              image: const DecorationImage(
                 fit: BoxFit.contain,
                   image: AssetImage('assets/images/user_profile.png'))),
           height: 120.h,
@@ -26,7 +26,7 @@ class ProfileTabOwner extends StatelessWidget {
         SizedBox(
           height: 20.h,
         ),
-        Container(
+        SizedBox(
           child: Column(
             children: [
               Text(

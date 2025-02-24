@@ -33,7 +33,7 @@ class _ResetPasswordConfirmationScreenState
                 style: TextStyle(fontSize: 15.sp, fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 20.h),
-              Text(
+              const Text(
                 "You can now log in to your account using your new password.",
                 textAlign: TextAlign.center,
                 style: TextStyle(fontSize: 12),
@@ -47,7 +47,7 @@ class _ResetPasswordConfirmationScreenState
                 onPressed: () {
                   Navigator.pushNamed(context, '/reset_password_confirmation');
                 },
-                child: Text("Let's go", style: TextStyle(color: Colors.white)),
+                child: const Text("Let's go", style: TextStyle(color: Colors.white)),
               ),
             ],
           ),

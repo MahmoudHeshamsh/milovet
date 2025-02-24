@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:milovet/shared/color_manager.dart';
+import 'package:milovet/shared/routes/routes.dart';
 
 class ProfileTabVeterinarian extends StatelessWidget {
   const ProfileTabVeterinarian({super.key});
@@ -17,8 +18,8 @@ class ProfileTabVeterinarian extends StatelessWidget {
           decoration: BoxDecoration(
               border: Border.all(color: ColorManager.primaryColor),
               shape: BoxShape.circle,
-              image: DecorationImage(
-                fit: BoxFit.contain,
+              image: const DecorationImage(
+                  fit: BoxFit.contain,
                   image: AssetImage('assets/images/doctor_image.png'))),
           height: 120.h,
           width: 120.w,
@@ -26,7 +27,7 @@ class ProfileTabVeterinarian extends StatelessWidget {
         SizedBox(
           height: 20.h,
         ),
-        Container(
+        SizedBox(
           child: Column(
             children: [
               Text(
@@ -54,25 +55,32 @@ class ProfileTabVeterinarian extends StatelessWidget {
                         borderRadius: BorderRadius.circular(5.sp)),
                     height: 45.h,
                     width: 330.w,
-                    child: Row(
-                      children: [
-                        SizedBox(width: 5.w,),
-                        Image.asset(
-                          'assets/images/edit_profile.png',
-                          height: 24.h,
-                          width: 24.w,
-                        ),
-                        SizedBox(
-                          width: 10.0.w,
-                        ),
-                        Text(
-                          'Edit My Profile',
-                          style: Theme.of(context)
-                              .textTheme
-                              .titleSmall!
-                              .copyWith(fontSize: 14.sp),
-                        ),
-                      ],
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).pushNamed(Routes.editProfile);
+                      },
+                      child: Row(
+                        children: [
+                          SizedBox(
+                            width: 5.w,
+                          ),
+                          Image.asset(
+                            'assets/images/edit_profile.png',
+                            height: 24.h,
+                            width: 24.w,
+                          ),
+                          SizedBox(
+                            width: 10.0.w,
+                          ),
+                          Text(
+                            'Edit My Profile',
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleSmall!
+                                .copyWith(fontSize: 14.sp),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                   SizedBox(
@@ -88,7 +96,9 @@ class ProfileTabVeterinarian extends StatelessWidget {
                     width: 330.w,
                     child: Row(
                       children: [
-                        SizedBox(width: 5.w,),
+                        SizedBox(
+                          width: 5.w,
+                        ),
                         Image.asset(
                           'assets/images/help_support.png',
                           height: 24.h,
@@ -120,7 +130,9 @@ class ProfileTabVeterinarian extends StatelessWidget {
                     width: 330.w,
                     child: Row(
                       children: [
-                        SizedBox(width: 5.w,),
+                        SizedBox(
+                          width: 5.w,
+                        ),
                         Image.asset(
                           'assets/images/notifications_icon.png',
                           height: 24.h,
@@ -152,9 +164,11 @@ class ProfileTabVeterinarian extends StatelessWidget {
                     width: 330.w,
                     child: Row(
                       children: [
-                        SizedBox(width: 5.w,),
+                        SizedBox(
+                          width: 5.w,
+                        ),
                         Image.asset(
-                          'assets/images/settings_icon.png', 
+                          'assets/images/settings_icon.png',
                           height: 24.h,
                           width: 24.w,
                         ),
@@ -181,10 +195,12 @@ class ProfileTabVeterinarian extends StatelessWidget {
                         ),
                         borderRadius: BorderRadius.circular(5.sp)),
                     height: 45.h,
-                    width: 330.w, 
+                    width: 330.w,
                     child: Row(
                       children: [
-                        SizedBox(width: 5.w,),
+                        SizedBox(
+                          width: 5.w,
+                        ),
                         Image.asset(
                           'assets/images/logout.png',
                           height: 24.h,

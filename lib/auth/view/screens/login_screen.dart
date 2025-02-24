@@ -26,7 +26,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
     if (!isEmailValid || !isPasswordValid) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
+        const SnackBar(
           content: Text("Email and password must be at least 8 characters!"),
           backgroundColor: Colors.red,
         ),
@@ -35,13 +35,13 @@ class _LoginScreenState extends State<LoginScreen> {
     }
 
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
+      const SnackBar(
         content: Text("Login Successful!"),
         backgroundColor: Colors.green,
       ),
     );
 
-    Future.delayed(Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 2), () {
       Navigator.pushNamed(context, '/signup_confirmation');
     });
   }
@@ -80,15 +80,15 @@ class _LoginScreenState extends State<LoginScreen> {
                     keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(
                       filled: true,
-                      fillColor: Color(0xffEEEEEE),
+                      fillColor: const Color(0xffEEEEEE),
                       labelText: "Email",
                       labelStyle: TextStyle(
                         color: isEmailValid ? Colors.black : Colors.red,
                       ),
                       errorText:
                           isEmailValid ? null : "Must be at least 8 characters",
-                      border: OutlineInputBorder(),
-                      prefixIcon: Icon(Icons.email, color: Colors.purple),
+                      border: const OutlineInputBorder(),
+                      prefixIcon: const Icon(Icons.email, color: Colors.purple),
                     ),
                   ),
                   SizedBox(height: 20.h),
@@ -99,7 +99,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     obscureText: true,
                     decoration: InputDecoration(
                       filled: true,
-                      fillColor: Color(0xffEEEEEE),
+                      fillColor: const Color(0xffEEEEEE),
                       labelText: "Password",
                       labelStyle: TextStyle(
                         color: isPasswordValid ? Colors.black : Colors.red,
@@ -107,8 +107,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       errorText: isPasswordValid
                           ? null
                           : "Must be at least 8 characters",
-                      border: OutlineInputBorder(),
-                      prefixIcon: Icon(Icons.lock, color: Colors.purple),
+                      border: const OutlineInputBorder(),
+                      prefixIcon: const Icon(Icons.lock, color: Colors.purple),
                     ),
                   ),
                   SizedBox(height: 10.h),
@@ -120,7 +120,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       onTap: () {
                         Navigator.pushNamed(context, '/forgot_password');
                       },
-                      child: Text(
+                      child: const Text(
                         "Forgot your password?",
                         style: TextStyle(color: Colors.purple),
                       ),
@@ -135,7 +135,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       minimumSize: Size(290.w, 64.h),
                     ),
                     onPressed: _handleLogin,
-                    child: Text("Login", style: TextStyle(color: Colors.white)),
+                    child: const Text("Login", style: TextStyle(color: Colors.white)),
                   ),
 
                   SizedBox(height: 10.h),
@@ -144,12 +144,12 @@ class _LoginScreenState extends State<LoginScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("Don’t have an account?"),
+                      const Text("Don’t have an account?"),
                       TextButton(
                         onPressed: () {
                           Navigator.pushNamed(context, '/signup');
                         },
-                        child: Text(
+                        child: const Text(
                           "Create new account",
                           style: TextStyle(color: Colors.purple),
                         ),
@@ -158,7 +158,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
 
                   SizedBox(height: 20.h),
-                  Text('_______ Or continue with _______'),
+                  const Text('_______ Or continue with _______'),
                   SizedBox(height: 20.h),
 
                   // Social Login
@@ -166,9 +166,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       _socialButton(Icons.g_mobiledata),
-                      SizedBox(width: 5),
+                      const SizedBox(width: 5),
                       _socialButton(Icons.facebook),
-                      SizedBox(width: 5),
+                      const SizedBox(width: 5),
                       _socialButton(Icons.apple),
                     ],
                   )
@@ -194,7 +194,7 @@ class _LoginScreenState extends State<LoginScreen> {
           borderRadius: BorderRadius.circular(12),
           onTap: () {},
           child: Padding(
-            padding: EdgeInsets.all(8),
+            padding: const EdgeInsets.all(8),
             child: Icon(icon, size: 40.sp, color: Colors.purple),
           ),
         ),

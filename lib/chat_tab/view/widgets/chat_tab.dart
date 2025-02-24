@@ -5,8 +5,8 @@ class ChatTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Center(child: Text('ChatTab',style: TextStyle(color: Colors.amber),),),
+    return const SizedBox(
+      child:  Center(child: Text('ChatTab',style: TextStyle(color: Colors.amber),),),
     );
   }
 }

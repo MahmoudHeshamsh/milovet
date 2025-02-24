@@ -25,7 +25,7 @@ class HomeTabVeterinarian extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       scrollDirection: Axis.vertical,
-      physics: BouncingScrollPhysics(),
+      physics: const BouncingScrollPhysics(),
       child: SizedBox(
         height: 800.h,
         child: Column(
@@ -34,7 +34,7 @@ class HomeTabVeterinarian extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(top: 25.h),
               child: Container(
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                       image: DecorationImage(
                           image: AssetImage('assets/images/chat_with_milo.png'))),
                   width: 358.w,

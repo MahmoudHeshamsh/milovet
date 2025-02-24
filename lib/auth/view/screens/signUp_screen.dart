@@ -32,18 +32,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
     if (isEmailValid && isPasswordValid && isConfirmPasswordValid) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
+        const SnackBar(
           content: Text("Sign Up Successful!"),
           backgroundColor: Colors.green,
         ),
       );
 
-      Future.delayed(Duration(seconds: 1), () {
+      Future.delayed(const Duration(seconds: 1), () {
         Navigator.pushNamed(context, '/signup_confirmation');
       });
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
+        const SnackBar(
           content: Text("Please correct the errors before proceeding"),
           backgroundColor: Colors.red,
         ),
@@ -81,14 +81,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 controller: emailController,
                 decoration: InputDecoration(
                   filled: true,
-                  fillColor: Color(0xffEEEEEE),
+                  fillColor: const Color(0xffEEEEEE),
                   labelText: "Email",
                   labelStyle: TextStyle(
                       color: isEmailValid ? Colors.black : Colors.red),
                   errorText:
                       isEmailValid ? null : "Must be at least 8 characters",
-                  border: OutlineInputBorder(),
-                  prefixIcon: Icon(Icons.email, color: Colors.purple),
+                  border: const OutlineInputBorder(),
+                  prefixIcon: const Icon(Icons.email, color: Colors.purple),
                 ),
                 style:
                     TextStyle(color: isEmailValid ? Colors.black : Colors.red),
@@ -101,14 +101,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 obscureText: true,
                 decoration: InputDecoration(
                   filled: true,
-                  fillColor: Color(0xffEEEEEE),
+                  fillColor: const Color(0xffEEEEEE),
                   labelText: "Password",
                   labelStyle: TextStyle(
                       color: isPasswordValid ? Colors.black : Colors.red),
                   errorText:
                       isPasswordValid ? null : "Must be at least 8 characters",
-                  border: OutlineInputBorder(),
-                  prefixIcon: Icon(Icons.lock, color: Colors.purple),
+                  border: const OutlineInputBorder(),
+                  prefixIcon: const Icon(Icons.lock, color: Colors.purple),
                 ),
                 style: TextStyle(
                     color: isPasswordValid ? Colors.black : Colors.red),
@@ -121,15 +121,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 obscureText: true,
                 decoration: InputDecoration(
                   filled: true,
-                  fillColor: Color(0xffEEEEEE),
+                  fillColor: const Color(0xffEEEEEE),
                   labelText: "Confirm Password",
                   labelStyle: TextStyle(
                       color:
                           isConfirmPasswordValid ? Colors.black : Colors.red),
                   errorText:
                       isConfirmPasswordValid ? null : "Passwords do not match",
-                  border: OutlineInputBorder(),
-                  prefixIcon: Icon(Icons.lock, color: Colors.purple),
+                  border: const OutlineInputBorder(),
+                  prefixIcon: const Icon(Icons.lock, color: Colors.purple),
                 ),
                 style: TextStyle(
                     color: isConfirmPasswordValid ? Colors.black : Colors.red),
@@ -143,7 +143,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   minimumSize: Size(290.w, 64.h),
                 ),
                 onPressed: validateAndSignUp,
-                child: Text("Sign Up", style: TextStyle(color: Colors.white)),
+                child: const Text("Sign Up", style: TextStyle(color: Colors.white)),
               ),
             ],
           ),

@@ -7,6 +7,7 @@ import 'package:milovet/auth/view/screens/SignUpConfirmationScreen.dart';
 import 'package:milovet/auth/view/screens/login_screen.dart';
 import 'package:milovet/auth/view/screens/signUp_screen.dart';
 import 'package:milovet/get_started/view/screens/get_started.dart';
+import 'package:milovet/profile_tab/view/screens/edit_profile_screen.dart';
 import 'package:milovet/shared/home_screen/home_screen.dart';
 import 'package:milovet/shared/routes/routes.dart';
 import 'package:milovet/get_started/view/screens/onboarding_screen_one.dart';
@@ -31,7 +32,7 @@ class RouteGenerator {
             builder: (_) => DoctorOrUser(), settings: settings);
       case Routes.homeScreen:
         return MaterialPageRoute(
-            builder: (_) => HomeScreen(), settings: settings);
+            builder: (_) => const HomeScreen(), settings: settings);
       case Routes.signUpConfirmation:
         return MaterialPageRoute(
             builder: (_) => const SignUpConfirmationScreen());
@@ -45,6 +46,9 @@ class RouteGenerator {
       case Routes.resetPasswordConfirmation:
         return MaterialPageRoute(
             builder: (_) => const ResetPasswordConfirmationScreen());
+      case Routes.editProfile:
+        return MaterialPageRoute(
+            builder: (_) => const EditProfileScreen());
 
       default:
         return _undefinedRoute();
