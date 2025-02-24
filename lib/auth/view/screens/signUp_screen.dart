@@ -149,8 +149,64 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   onPressed: validateAndSignUp,
                   child: Text("Sign Up", style: TextStyle(color: Colors.white)),
                 ),
+
+                SizedBox(height: 10.h),
+
+                // Signup Option
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text("have you an account?"),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/signup');
+                      },
+                      child: Text(
+                        "Sign in",
+                        style: TextStyle(color: Colors.purple),
+                      ),
+                    ),
+                  ],
+                ),
+
+                SizedBox(height: 20.h),
+                Text('_______ Or continue with _______'),
+                SizedBox(height: 20.h),
+
+                // Social Login
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    _socialButton(Icons.g_mobiledata),
+                    SizedBox(width: 5),
+                    _socialButton(Icons.facebook),
+                    SizedBox(width: 5),
+                    _socialButton(Icons.apple),
+                  ],
+                )
               ],
             ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _socialButton(IconData icon) {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12),
+        color: Colors.purple.withOpacity(0.1),
+      ),
+      child: Material(
+        color: Colors.transparent,
+        borderRadius: BorderRadius.circular(12),
+        child: InkWell(
+          borderRadius: BorderRadius.circular(12),
+          onTap: () {},
+          child: Padding(
+            padding: EdgeInsets.all(8),
+            child: Icon(icon, size: 40.sp, color: Colors.purple),
           ),
         ),
       ),
