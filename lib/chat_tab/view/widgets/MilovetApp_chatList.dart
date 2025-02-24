@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class ChatListScreen extends StatefulWidget {
-  const ChatListScreen({super.key});
+class ChatList extends StatefulWidget {
+  const ChatList({super.key});
 
   @override
-  State<ChatListScreen> createState() => _ChatListScreenState();
+  State<ChatList> createState() => _ChatListScreenState();
 }
 
-class _ChatListScreenState extends State<ChatListScreen> {
+class _ChatListScreenState extends State<ChatList> {
   TextEditingController searchController = TextEditingController();
-  List<String> users =
-      List.generate(10, (index) => "User${index + 1}"); // أسماء المستخدمين
+  List<String> users = List.generate(10, (index) => "User${index + 1}");
   List<String> filteredUsers = [];
   bool isSearching = false;
 

@@ -6,6 +6,8 @@ import 'package:milovet/auth/view/screens/ResetPasswordScreen.dart';
 import 'package:milovet/auth/view/screens/SignUpConfirmationScreen.dart';
 import 'package:milovet/auth/view/screens/login_screen.dart';
 import 'package:milovet/auth/view/screens/signUp_screen.dart';
+import 'package:milovet/chat_tab/view/widgets/MilovetApp_chatList.dart';
+import 'package:milovet/chat_tab/view/widgets/chat_tab.dart';
 import 'package:milovet/get_started/view/screens/get_started.dart';
 import 'package:milovet/profile_tab/view/screens/edit_profile_screen.dart';
 import 'package:milovet/shared/home_screen/home_screen.dart';
@@ -35,7 +37,7 @@ class RouteGenerator {
             builder: (_) => HomeScreen(), settings: settings);
       case Routes.signUpConfirmation:
         return MaterialPageRoute(
-            builder: (_) =>  const SignUpConfirmationScreen());
+            builder: (_) => const SignUpConfirmationScreen());
       case Routes.forgotPassword:
         return MaterialPageRoute(builder: (_) => const ForgotPasswordScreen());
       case Routes.emailVerification:
@@ -47,8 +49,11 @@ class RouteGenerator {
         return MaterialPageRoute(
             builder: (_) => const ResetPasswordConfirmationScreen());
       case Routes.editProfile:
-        return MaterialPageRoute(
-            builder: (_) => const EditProfileScreen());
+        return MaterialPageRoute(builder: (_) => const EditProfileScreen());
+      case Routes.chatTab:
+        return MaterialPageRoute(builder: (_) => const ChatTab());
+      case Routes.chatList:
+        return MaterialPageRoute(builder: (_) => const ChatList());
       default:
         return _undefinedRoute();
     }
