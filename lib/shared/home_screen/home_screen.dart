@@ -31,13 +31,13 @@ class _HomeScreenState extends State<HomeScreen> {
         ? [
             HomeTabOwner(),
             const ChatList(),
-            const NotificationsTab(),
+            NotificationsTab(),
             const ProfileTabOwner(),
           ]
         : [
             HomeTabVeterinarian(),
             const ChatList(),
-            const NotificationsTab(),
+            NotificationsTab(),
             const ProfileTabVeterinarian(),
           ];
     return Scaffold(
@@ -179,10 +179,10 @@ class _HomeScreenState extends State<HomeScreen> {
               backgroundColor: Colors.transparent,
               onPressed: () {},
               child: Container(
-                decoration: const BoxDecoration(
-                  color: ColorManager.white,
-                  shape: BoxShape.circle,
-                ),
+                  decoration: const BoxDecoration(
+                    color: ColorManager.white,
+                    shape: BoxShape.circle,
+                  ),
                   height: 47.h,
                   width: 47.w,
                   child: Icon(

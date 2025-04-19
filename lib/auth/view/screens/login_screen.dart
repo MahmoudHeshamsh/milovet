@@ -44,9 +44,8 @@ class _LoginScreenState extends State<LoginScreen> {
     );
     final args = ModalRoute.of(context)?.settings.arguments as bool?;
     bool isPetOwner = args ?? true;
-    Future.delayed(const Duration(seconds: 2), () {
-      Navigator.of(context)
-          .pushReplacementNamed(Routes.homeScreen, arguments: isPetOwner);
+    Future.delayed(Duration(seconds: 1), () {
+      Navigator.pushNamed(context, '/signup_confirmation');
     });
   }
 
@@ -97,7 +96,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       errorText:
                           isEmailValid ? null : "Must be at least 8 characters",
                       border: const OutlineInputBorder(),
-                      prefixIcon: const Icon(Icons.email, color: Color(0xFF6F3797)),
+                      prefixIcon:
+                          const Icon(Icons.email, color: Color(0xFF6F3797)),
                     ),
                   ),
                   SizedBox(height: 20.h),
@@ -115,7 +115,8 @@ class _LoginScreenState extends State<LoginScreen> {
                           ? null
                           : "Must be at least 8 characters",
                       border: const OutlineInputBorder(),
-                      prefixIcon: const Icon(Icons.lock, color: Color(0xFF6F3797)),
+                      prefixIcon:
+                          const Icon(Icons.lock, color: Color(0xFF6F3797)),
                     ),
                   ),
                   SizedBox(height: 10.h),
@@ -138,7 +139,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       minimumSize: Size(290.w, 64.h),
                     ),
                     onPressed: _handleLogin,
-                    child: const Text("Login", style: TextStyle(color: Colors.white)),
+                    child: const Text("Login",
+                        style: TextStyle(color: Colors.white)),
                   ),
                   SizedBox(height: 10.h),
                   Row(
@@ -150,8 +152,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       TextButton(
                         onPressed: () {
-                          Navigator.of(context).pushNamed(Routes.signUp,
-                              arguments: isPetOwner);
+                          Navigator.of(context)
+                              .pushNamed(Routes.signUp, arguments: isPetOwner);
                         },
                         child: const Text(
                           "Create new account",

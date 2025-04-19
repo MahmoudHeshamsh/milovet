@@ -39,10 +39,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
           backgroundColor: Colors.green,
         ),
       );
-    final args = ModalRoute.of(context)?.settings.arguments as bool?;
-    bool isPetOwner = args ?? true;
+      final args = ModalRoute.of(context)?.settings.arguments as bool?;
+      bool isPetOwner = args ?? true;
       Future.delayed(const Duration(seconds: 1), () {
-        Navigator.of(context).pushReplacementNamed(Routes.congratulation,arguments: isPetOwner);
+        Navigator.pushNamed(context, '/signup_confirmation');
       });
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -63,7 +63,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
         backgroundColor: Colors.transparent,
         title: Text(
           "Sign Up",
-          style: TextStyle(fontSize: 24.sp,
+          style: TextStyle(
+              fontSize: 24.sp,
               fontWeight: FontWeight.bold,
               color: ColorManager.black),
         ),
@@ -94,7 +95,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     errorText:
                         isEmailValid ? null : "Must be at least 8 characters",
                     border: const OutlineInputBorder(),
-                    prefixIcon: const Icon(Icons.email, color: Color(0xFF6F3797)),
+                    prefixIcon:
+                        const Icon(Icons.email, color: Color(0xFF6F3797)),
                   ),
                   style: TextStyle(
                       color: isEmailValid ? Colors.black : Colors.red),
@@ -113,7 +115,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ? null
                         : "Must be at least 8 characters",
                     border: const OutlineInputBorder(),
-                    prefixIcon: const Icon(Icons.lock, color: Color(0xFF6F3797)),
+                    prefixIcon:
+                        const Icon(Icons.lock, color: Color(0xFF6F3797)),
                   ),
                   style: TextStyle(
                       color: isPasswordValid ? Colors.black : Colors.red),
@@ -133,7 +136,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ? null
                         : "Passwords do not match",
                     border: const OutlineInputBorder(),
-                    prefixIcon: const Icon(Icons.lock, color: Color(0xFF6F3797)),
+                    prefixIcon:
+                        const Icon(Icons.lock, color: Color(0xFF6F3797)),
                   ),
                   style: TextStyle(
                       color:
@@ -146,7 +150,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     minimumSize: Size(290.w, 64.h),
                   ),
                   onPressed: validateAndSignUp,
-                  child: const Text("Sign Up", style: TextStyle(color: Colors.white)),
+                  child: const Text("Sign Up",
+                      style: TextStyle(color: Colors.white)),
                 ),
                 SizedBox(height: 10.h),
                 Row(

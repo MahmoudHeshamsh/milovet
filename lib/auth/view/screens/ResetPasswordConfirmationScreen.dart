@@ -21,7 +21,7 @@ class _ResetPasswordConfirmationScreenState
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Image.asset('assets/images/Frame 1261154868.png',
+              Image.asset('assets/images/congrats.png',
                   width: 264.w, height: 245.14.h),
               SizedBox(height: 20.h),
               Text(
@@ -33,7 +33,7 @@ class _ResetPasswordConfirmationScreenState
               const Text(
                 "You can now log in to your account using your new password.",
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 12),
+                style: TextStyle(fontSize: 12, color: Color(0xFF221F1F)),
               ),
               SizedBox(height: 30.h),
               ElevatedButton(
@@ -44,7 +44,8 @@ class _ResetPasswordConfirmationScreenState
                 onPressed: () {
                   Navigator.pushNamed(context, '/doctor_user');
                 },
-                child: const Text("Let's go", style: TextStyle(color: Colors.white)),
+                child: const Text("Let's go",
+                    style: TextStyle(color: Colors.white)),
               ),
             ],
           ),
