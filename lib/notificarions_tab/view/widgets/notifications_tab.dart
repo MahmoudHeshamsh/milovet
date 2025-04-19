@@ -39,10 +39,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class NotificationsTab extends StatelessWidget {
   final List<Map<String, String>> todayNotifications = [
     {
-      'icon': 'assets/images/Vector.png',
+      'icon': 'assets/images/Frame 2089.png',
       'message': 'Your checkup is successful'
     },
-    {'icon': 'assets/images/fi_check.png', 'message': 'Request accepted'},
+    {'icon': 'assets/images/fi_check .png', 'message': 'Request accepted'},
   ];
 
   final List<Map<String, String>> septemberNotifications = [
