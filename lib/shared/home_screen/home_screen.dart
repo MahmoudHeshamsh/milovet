@@ -6,6 +6,7 @@ import 'package:milovet/home_tab/view/widgets/home_tab_veterinarian.dart';
 import 'package:milovet/notificarions_tab/view/widgets/notifications_tab.dart';
 import 'package:milovet/profile_tab/view/widgets/profile_tab_owner.dart';
 import 'package:milovet/profile_tab/view/widgets/profile_tab_veterinarian.dart';
+import 'package:milovet/settings_tab/settings.dart';
 import 'package:milovet/shared/color_manager.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -33,12 +34,14 @@ class _HomeScreenState extends State<HomeScreen> {
             const ChatList(),
             NotificationsTab(),
             const ProfileTabOwner(),
+            Settings(),
           ]
         : [
             HomeTabVeterinarian(),
             const ChatList(),
             NotificationsTab(),
             const ProfileTabVeterinarian(),
+            Settings(),
           ];
     return Scaffold(
       backgroundColor: ColorManager.white,
@@ -125,7 +128,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         icon: Icon(Icons.notifications_on_rounded),
                         label: 'Notifications'),
                     BottomNavigationBarItem(
-                        icon: Icon(Icons.person), label: 'Profile')
+                        icon: Icon(Icons.person), label: 'Profile'),
+                    BottomNavigationBarItem(
+                        icon: Icon(Icons.settings), label: 'Settings')
                   ],
                 ),
               ),
@@ -157,7 +162,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         icon: Icon(Icons.notifications_on_rounded),
                         label: 'Notifications'),
                     BottomNavigationBarItem(
-                        icon: Icon(Icons.person), label: 'Profile')
+                        icon: Icon(Icons.person), label: 'Profile'),
+                    BottomNavigationBarItem(
+                        icon: Icon(Icons.settings), label: 'Settings')
                   ],
                 ),
               ),

@@ -10,6 +10,7 @@ import 'package:milovet/chat_tab/view/widgets/MilovetApp_chatList.dart';
 import 'package:milovet/chat_tab/view/widgets/chat_tab.dart';
 import 'package:milovet/get_started/view/screens/get_started.dart';
 import 'package:milovet/profile_tab/view/screens/edit_profile_screen.dart';
+import 'package:milovet/settings_tab/settings.dart';
 import 'package:milovet/shared/home_screen/home_screen.dart';
 import 'package:milovet/shared/routes/routes.dart';
 import 'package:milovet/get_started/view/screens/onboarding_screen_one.dart';
@@ -60,6 +61,9 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const ChatTab());
       case Routes.chatList:
         return MaterialPageRoute(builder: (_) => const ChatList());
+      case Routes.settings:
+        return MaterialPageRoute(builder: (_) => const Settings());
+
       default:
         return _undefinedRoute();
     }

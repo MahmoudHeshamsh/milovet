@@ -16,4 +16,5 @@ class Routes {
       '/reset_password_confirmation';
   static const String chatTab = '/chatTab';
   static const String chatList = '/chatList';
+  static const String settings = '/settings';
 }
