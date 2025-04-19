@@ -67,7 +67,7 @@ class NotificationsTab extends StatelessWidget {
           'Notifications',
           style: TextStyle(color: Colors.black),
         ),
-        leading: const BackButton(color: Color(0xFF7B61FF)),
+        leading: const BackButton(color: Color(0xFF6D1FCB)),
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
