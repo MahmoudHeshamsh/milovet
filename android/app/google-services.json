@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "312732952394",
+    "project_id": "milovet",
+    "storage_bucket": "milovet.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:312732952394:android:32f47ddb98c3b255f2c3b3",
+        "android_client_info": {
+          "package_name": "com.example.milovet"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQ773_UrEKvLEArRUfWTBZxYKBnq3Ww60"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,10 +1,16 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:milovet/firebase_options.dart';
 import 'package:milovet/shared/app_theme.dart';
 import 'package:milovet/shared/routes/route_generator.dart';
 import 'package:milovet/shared/routes/routes.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MiloVet());
 }
 
