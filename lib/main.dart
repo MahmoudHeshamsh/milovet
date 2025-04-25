@@ -7,6 +7,7 @@ import 'package:milovet/shared/routes/route_generator.dart';
 import 'package:milovet/shared/routes/routes.dart';
 
 Future<void> main() async {
+  //////////////////
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
