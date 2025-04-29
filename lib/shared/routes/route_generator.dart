@@ -7,7 +7,7 @@ import 'package:milovet/auth/view/screens/SignUpConfirmationScreen.dart';
 import 'package:milovet/auth/view/screens/login_screen.dart';
 import 'package:milovet/auth/view/screens/signUp_screen.dart';
 import 'package:milovet/chat_tab/view/widgets/MilovetApp_chatList.dart';
-import 'package:milovet/chat_tab/view/widgets/chat_tab.dart';
+import 'package:milovet/chat_tab/view/screens/chat_tab.dart';
 import 'package:milovet/get_started/view/screens/get_started.dart';
 import 'package:milovet/profile_tab/view/screens/edit_profile_screen.dart';
 import 'package:milovet/settings_tab/settings.dart';
