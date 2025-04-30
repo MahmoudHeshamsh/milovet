@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:milovet/chat_tab/view/widgets/sent_message.dart';
 
-import '../widgets/recieve_message.dart';
+import '../widgets/recieved_message.dart';
 
 class ChatTab extends StatefulWidget {
   const ChatTab({super.key});
@@ -93,7 +93,7 @@ class _ChatTabState extends State<ChatTab> {
                       ),
                       message["isMe"]
                           ? SentMessage(text: message["text"])
-                          : RecieveMessage(text: message["text"]),
+                          : RecievedMessage(text: message["text"]),
                       // Container(
                       //     margin: const EdgeInsets.symmetric(vertical: 5),
                       //     padding: const EdgeInsets.all(12),
@@ -106,7 +106,7 @@ class _ChatTabState extends State<ChatTab> {
                       //       borderRadius: BorderRadius.circular(15),
                       //     ),
                       //     child: Column(
-                      //       children: [SentMassage()],
+                      //       children: [SentMassage(),ResievedMessage()],
                       //     )
                       //     // Text(
                       //     // message["text"],
