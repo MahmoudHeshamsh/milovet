@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ChatList extends StatefulWidget {
+  // final ChatModel chat;
   const ChatList({super.key});
 
   @override
@@ -128,9 +129,18 @@ class _ChatListScreenState extends State<ChatList> {
                                 borderRadius: BorderRadius.circular(25),
                               ),
                             ),
+                            // onPressed: () {
+                            //   Navigator.pushNamed(context, '/chatTab');
+                            // },
+
                             onPressed: () {
-                              Navigator.pushNamed(context, '/chatTab');
+                              Navigator.pushNamed(
+                                context,
+                                '/chatTab',
+                                arguments: filteredUsers[index],
+                              );
                             },
+
                             child: Align(
                               alignment: Alignment.centerLeft,
                               child: Padding(

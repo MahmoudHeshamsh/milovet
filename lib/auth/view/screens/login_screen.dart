@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:milovet/auth/view/screens/auth_view_model.dart';
 import 'package:milovet/shared/color_manager.dart';
-import 'package:milovet/shared/routes/routes.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -17,19 +18,26 @@ class _LoginScreenState extends State<LoginScreen> {
   bool isEmailValid = true;
   bool isPasswordValid = true;
 
+  // دالة التحقق من صحة الايميل
+  bool isValidEmail(String email) {
+    final emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
+    return emailRegex.hasMatch(email);
+  }
+
   void _handleLogin() {
     String email = _emailController.text.trim();
     String password = _passwordController.text.trim();
 
     setState(() {
-      isEmailValid = email.length >= 8;
+      isEmailValid = isValidEmail(email);
       isPasswordValid = password.length >= 8;
     });
 
     if (!isEmailValid || !isPasswordValid) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text("Email and password must be at least 8 characters!"),
+          content: Text(
+              "Please enter a valid email and password must be at least 8 characters!"),
           backgroundColor: Colors.red,
         ),
       );
@@ -42,9 +50,10 @@ class _LoginScreenState extends State<LoginScreen> {
         backgroundColor: Colors.green,
       ),
     );
+
     final args = ModalRoute.of(context)?.settings.arguments as bool?;
     bool isPetOwner = args ?? true;
-    Future.delayed(Duration(seconds: 1), () {
+    Future.delayed(const Duration(seconds: 1), () {
       Navigator.pushNamed(context, '/signup_confirmation');
     });
   }
@@ -94,7 +103,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         color: isEmailValid ? Colors.black : Colors.red,
                       ),
                       errorText:
-                          isEmailValid ? null : "Must be at least 8 characters",
+                          isEmailValid ? null : "Please enter a valid email",
                       border: const OutlineInputBorder(),
                       prefixIcon:
                           const Icon(Icons.email, color: Color(0xFF6F3797)),
@@ -113,7 +122,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       errorText: isPasswordValid
                           ? null
-                          : "Must be at least 8 characters",
+                          : "Password must be at least 8 characters",
                       border: const OutlineInputBorder(),
                       prefixIcon:
                           const Icon(Icons.lock, color: Color(0xFF6F3797)),
@@ -153,7 +162,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       TextButton(
                         onPressed: () {
                           Navigator.of(context)
-                              .pushNamed(Routes.signUp, arguments: isPetOwner);
+                              .pushNamed('/signup', arguments: isPetOwner);
                         },
                         child: const Text(
                           "Create new account",
@@ -203,5 +212,15 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
       ),
     );
+  }
+
+  void login(
+      dynamic emailController, dynamic passwordController, dynamic formKey) {
+    if (formKey.currentState?.validate() == true) {
+      BlocProvider.of<AuthViewModel>(context).login(
+        email: emailController.text,
+        password: passwordController.text,
+      );
+    }
   }
 }

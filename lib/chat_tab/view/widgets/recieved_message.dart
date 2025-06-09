@@ -1,22 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:intl/intl.dart';
+import 'package:milovet/chat_tab/data/models/message_model.dart';
+import 'package:milovet/models/user_model.dart';
 import 'package:milovet/shared/app_theme.dart';
 import 'package:milovet/shared/color_manager.dart';
 
 class RecievedMessage extends StatelessWidget {
-  final String text;
+  final MessageModel message;
+  final UserModel currentUser;
 
-  const RecievedMessage({super.key, required this.text});
+  const RecievedMessage({required this.message, required this.currentUser});
 
   @override
   Widget build(BuildContext context) {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
-        const Align(
+        Align(
           alignment: Alignment.bottomLeft,
           child: Text(
-            '3:12',
+            DateFormat.jm().format(message.dateTime),
             style: TextStyle(fontSize: 10),
           ),
         ),
@@ -38,7 +42,8 @@ class RecievedMessage extends StatelessWidget {
             ),
             //child: const Text('Hello, How can I help you?'),
             child: Text(
-              text,
+              //text,
+              message.content,
               style: const TextStyle(color: Colors.black),
               softWrap: true, // يتلف صح
               overflow: TextOverflow.visible, // ميقصش الكلام

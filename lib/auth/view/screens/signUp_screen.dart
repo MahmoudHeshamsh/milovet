@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:milovet/auth/view/screens/auth_view_model.dart';
 import 'package:milovet/shared/color_manager.dart';
 import 'package:milovet/shared/routes/routes.dart';
 
@@ -20,13 +22,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
   bool isPasswordValid = true;
   bool isConfirmPasswordValid = true;
 
+  // دالة تحقق صحة الايميل
+  bool isValidEmail(String email) {
+    final emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
+    return emailRegex.hasMatch(email);
+  }
+
   void validateAndSignUp() {
     String email = emailController.text.trim();
     String password = passwordController.text.trim();
     String confirmPassword = confirmPasswordController.text.trim();
 
     setState(() {
-      isEmailValid = email.length >= 8;
+      isEmailValid = isValidEmail(email);
       isPasswordValid = password.length >= 8;
       isConfirmPasswordValid =
           confirmPassword == password && confirmPassword.isNotEmpty;
@@ -212,5 +220,17 @@ class _SignUpScreenState extends State<SignUpScreen> {
         ),
       ),
     );
+  }
+
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+
+  void _submitSignUp(dynamic nameController) {
+    if (_formKey.currentState?.validate() ?? false) {
+      BlocProvider.of<AuthViewModel>(context).signUp(
+        name: nameController.text,
+        email: emailController.text,
+        password: passwordController.text,
+      );
+    }
   }
 }
